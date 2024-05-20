@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -25,9 +26,11 @@ export default function Home() {
 
       {/* Content */}
       <div className="text-white flex justify-between items-end absolute bottom-0 left-0 right-0 p-4 md:p-5">
-        <h2 className="text-3xl md:text-[40px] md:leading-[48px] max-w-[300px] md:max-w-[394px]">
-          Contacta con nosotros
-        </h2>
+        <a href="mailto:instvaldonjuan@hotmail.com">
+          <h2 className="text-3xl md:text-[40px] md:leading-[48px] max-w-[300px] md:max-w-[394px]">
+            Contacta con nosotros
+          </h2>
+        </a>
         <h5 className="text-base md:text-2xl text-end">
           Calle de Fortuny 43, Madrid
         </h5>
