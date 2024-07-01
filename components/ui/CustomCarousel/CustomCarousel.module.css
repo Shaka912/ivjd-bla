@@ -1,0 +1,60 @@
+.container {
+  position: relative;
+}
+
+.button {
+  position: absolute;
+  outline: none;
+  border: none;
+  width: 45px;
+  height: 45px;
+  top: 48%;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+  /* background-color: black; */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("/images/left.svg");
+}
+.button:hover {
+  /* background-color: red; */
+}
+.icon {
+  font-size: 56px;
+  color: white;
+  fill: white;
+  /* transition: all 0.3s ease-in-out; */
+}
+.button:hover .icon {
+  color: black;
+  fill: black;
+}
+.previousButton {
+  background: url("/images/left.svg");
+  background-size: contain;
+  left: 10px;
+}
+.previousButton:hover {
+  background: url("/images/left-red.svg");
+  background-size: contain;
+  /* background-color: red; */
+}
+.nextButton {
+  background: url("/images/right.svg");
+  background-size: contain;
+  right: 10px;
+}
+.nextButton:hover {
+  background: url("/images/right-red.svg");
+  background-size: contain;
+}
+
+@media screen and (max-width: 768px) {
+  .button {
+    display: none;
+  }
+}

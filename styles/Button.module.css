@@ -1,0 +1,322 @@
+.container {
+  background: #ff0000;
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  padding: 8px 16px;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+  color: #000000;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+.container:hover {
+  background: #000000;
+  color: #ffffff;
+}
+.container:disabled {
+  background: #000000;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+.outlineContainer {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #ffffff;
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  padding: 7px 12px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.whiteBtnContainer {
+  padding: 8px 16px;
+  background: #ffffff;
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 16px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.bigRedBtnContainer {
+  padding: 16px 32px;
+  background: var(--color-primary);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .outlineContainer {
+    padding: 4px 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+/* White Outline Button CSS Styles Starts */
+.whiteOutlineBtnContainer {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid #ffffff;
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  padding: 6px 12px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: white;
+  cursor: pointer;
+}
+/* White Outline Button CSS Styles Ends */
+
+/* Filter Button CSS Styles Starts */
+.filterBtnContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.filterBtnImage {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+.filterBtnImage img {
+  object-fit: contain;
+}
+/* Filter Button CSS Styles Ends */
+
+/* Grey Outline Button CSS Styles Starts */
+.greyOutlineBtnContainer {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  padding: 6px 12px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+}
+/* Grey Outline Button CSS Styles Ends */
+
+/* Black Outline Button CSS Styles Starts */
+.blackOutlineBtnContainer {
+  border: 1px solid #000000;
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  padding: 6px 12px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+}
+/* Black Outline Button CSS Styles Ends */
+
+/* White With Arrow Button CSS Styles Starts */
+.btnWhiteWithArrow {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.btnWhiteWithArrow:hover {
+  background-color: red;
+}
+.btnWhiteWithArrowTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btnWhiteWithArrowTopTitle {
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height, or 125% */
+
+  color: #000000;
+}
+.btnWhiteWithArrowTopArrow {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.btnWhiteWithArrowTopArrow img {
+  object-fit: contain;
+}
+.btnWhiteWithArrowBottom {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.6);
+}
+/* White With Arrow Button CSS Styles Ends */
+
+/* Gray With Arrow Button CSS Styles Starts */
+.btnGrayWithArrow {
+  padding: 20px;
+  background: #999999;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  cursor: pointer;
+}
+.btnGrayWithArrowTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btnGrayWithArrowTopTitle {
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height, or 125% */
+
+  color: #000000;
+}
+.btnGrayWithArrowTopArrow {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.btnGrayWithArrowTopArrow img {
+  object-fit: contain;
+}
+.btnGrayWithArrowBottom {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+/* Gray With Arrow Button CSS Styles Ends */
+
+/* Outline With Arrow Button CSS Styles Starts */
+.btnOutlineWithArrow {
+  padding: 20px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+}
+.btnOutlineWithArrowTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btnOutlineWithArrowTopTitle {
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height, or 125% */
+
+  color: #ffffff;
+}
+.btnOutlineWithArrowTopArrow {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.btnOutlineWithArrowTopArrow img {
+  object-fit: contain;
+}
+.btnOutlineWithArrowBottom {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}
+/* Outline With Arrow Button CSS Styles Ends */
+
+/* Red With Arrow Button CSS Styles Starts */
+.btnRedWithArrow {
+  padding: 10px 20px;
+  background: #ff0000;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  cursor: pointer;
+}
+.btnRedWithArrowTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btnRedWithArrowTopTitle {
+  height: fit-content;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+
+  /* identical to box height, or 125% */
+
+  color: #000000;
+}
+.btnRedWithArrowTopArrow {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+.btnRedWithArrowTopArrow img {
+  object-fit: contain;
+}
+.btnRedWithArrowBottom {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+/* Red With Arrow Button CSS Styles Ends */
+/* Original Button CSS starts */
+.originalsButton {
+  display: flex;
+  gap: 2px;
+}
+
+.originalsImage {
+  position: relative;
+  width: 31.84px;
+  height: 31.89px;
+}
+
+/* Original Button CSS Ends */

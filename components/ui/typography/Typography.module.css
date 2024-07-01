@@ -1,0 +1,70 @@
+/* Super Title */
+
+.super_title {
+  font-size: var(--text-supertitle);
+  line-height: normal;
+}
+
+/* Title */
+
+.title {
+  font-size: var(--text-title);
+  line-height: normal;
+}
+
+/* Subtitle */
+
+.subtitle {
+  font-size: var(--text-subtitle);
+  line-height: normal;
+}
+
+/* Card Title */
+
+.card_title {
+  font-size: var(--text-card-title);
+  line-height: normal;
+}
+
+
+/* Card Subtitle */
+
+.card_subtitle_title {
+  font-size: var(--text-card-subtitle);
+  line-height: normal;
+}
+
+/* Normal */
+
+.normal {
+  font-size: var(--text-body);
+  line-height: normal;
+}
+
+
+
+
+
+/* Color stylings Starts */
+
+.high_dark {
+  color: var(--content-high-dark);
+}
+
+.high_blue {
+  color: var(--content-high-blue);
+}
+
+.mid {
+  color: var(--content-mid);
+}
+
+.low {
+  color: var(--content-low);
+}
+.on_high {
+  color: var(--content-onhigh);
+}
+
+
+/* Color stylings Ends */
