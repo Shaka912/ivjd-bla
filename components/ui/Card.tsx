@@ -188,30 +188,6 @@ const Card: React.FC<CardProps> = ({
     );
   }
 
-  if (varient == "ticket-2") {
-    return (
-      <Link
-        href={link}
-        target={newTab ? "_blank" : "_parent"}
-        className={styles.ticketCard2}
-      >
-        <div className={styles.ticketCard2Top}>
-          <div className={styles.ticketCard2TopTitle}>{title}</div>
-          {/* <div className={styles.ticketCard2Badge}>{subtitle}</div> */}
-        </div>
-
-        <div className={styles.ticketCard2TopImage}>
-          <ReactSVG
-            src="/images/icons/next-icon.svg"
-            alt=""
-            fill
-            className={styles.ticketCart2Icon}
-          />
-        </div>
-      </Link>
-    );
-  }
-
   if (varient == "textWithArrow") {
     const cardClass = {
       "#000000": "textWithArrowCardBlack",
@@ -221,10 +197,7 @@ const Card: React.FC<CardProps> = ({
     return (
       <Link href={link}>
         <div
-          className={classNames(
-            styles.textWithArrowCard,
-            styles[cardClass[bg]]
-          )}
+          className={classNames(styles.textWithArrowCard)}
           style={{ background: bg }}
         >
           <div className={styles.textWithArrowCardArrow}>
@@ -365,73 +338,6 @@ const Card: React.FC<CardProps> = ({
     );
   }
 
-  if (varient == "projects") {
-    return (
-      <Link href={link} style={{ height: "100%" }}>
-        <div className={styles.projectsCardOuter}>
-          <div className={styles.projectsCard}>
-            {/* {originalsButton && (
-              <div className={styles.projectsCardOverlay}>
-                <div className={styles.projectsCardOriginalsButtonContainer}>
-                  <OriginalsButton />
-                </div>
-              </div>
-            )} */}
-
-            <Image src={imgUrl} alt="" fill className={styles.image} />
-            <div className={styles.projectsCardContentDesktop}>
-              <div className={styles.projectsCardOverlay}>
-                {buttons && (
-                  <div className={styles.projectsCardButtonsContainer}>
-                    {buttons.map((button, index) => (
-                      <Button
-                        key={index}
-                        title={button.post_title}
-                        varient="white-outline"
-                      />
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <div
-                className={classNames(
-                  styles.projectsCardTitle,
-                  small && styles.projectsCardTitleSm
-                )}
-              >
-                {title}
-              </div>
-            </div>
-
-            <div>
-              {buttons && (
-                <div className={styles.mobProjectsCardButtons}>
-                  {buttons.map((button, index) => (
-                    <Button
-                      key={index}
-                      title={button.post_title}
-                      varient="white-outline"
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className={styles.projectsCardMobContent}>
-            <div className={styles.projectsCardTitleMob}>{title}</div>
-            {/* {originalsButton && (
-              <div className={styles.projectsCardOriginalsButtonContainer}>
-                <OriginalsButton varient="red-sm" />
-              </div>
-            )} */}
-          </div>
-        </div>
-      </Link>
-    );
-  }
-
   if (varient == "playlist") {
     return (
       <Link href={link}>
@@ -445,7 +351,7 @@ const Card: React.FC<CardProps> = ({
             {images &&
               images.map((image, index) => (
                 <div key={index} className={styles.playlistCardTopImage}>
-                  <Image src={proxyUrl(image)} alt="" fill />
+                  <Image src={image} alt="" fill />
                 </div>
               ))}
           </div>

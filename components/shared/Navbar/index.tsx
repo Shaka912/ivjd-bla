@@ -2,7 +2,7 @@
 import Text from "@/components/ui/typography/Typography";
 import { navbarList } from "@/constants";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 function Navbar() {
@@ -10,7 +10,7 @@ function Navbar() {
   const [menuType, setMenuType] = useState<string>();
   const [blend, setBlend] = useState<boolean>(true);
   const pathname = usePathname();
-  const query = useSearchParams();
+
   const isHome = pathname === "/" || pathname === "/es";
   const disableNavbar = false;
   React.useEffect(() => {

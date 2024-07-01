@@ -22,18 +22,17 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   if (varient == "outline")
     return (
-      <div
-        className={classNames(styles.outlineContainer, extraClass)}
-        dangerouslySetInnerHTML={{ __html: title }}
-      ></div>
+      <div className={classNames(styles.outlineContainer, extraClass)}>
+        {title}
+      </div>
     );
 
   if (varient == "white")
     return (
-      <div
-        className={classNames(styles.whiteBtnContainer, extraClass)}
-        dangerouslySetInnerHTML={{ __html: title }}
-      ></div>
+      <div className={classNames(styles.whiteBtnContainer, extraClass)}>
+        {" "}
+        {title}
+      </div>
     );
   if (varient == "white-originals")
     return (
@@ -53,18 +52,18 @@ const Button: React.FC<ButtonProps> = ({
     );
   if (varient == "bigRed")
     return (
-      <div
-        className={classNames(styles.bigRedBtnContainer, extraClass)}
-        dangerouslySetInnerHTML={{ __html: title }}
-      ></div>
+      <div className={classNames(styles.bigRedBtnContainer, extraClass)}>
+        {" "}
+        {title}
+      </div>
     );
 
   if (varient == "white-outline") {
     return (
-      <div
-        className={classNames(styles.whiteOutlineBtnContainer, extraClass)}
-        dangerouslySetInnerHTML={{ __html: title }}
-      ></div>
+      <div className={classNames(styles.whiteOutlineBtnContainer, extraClass)}>
+        {" "}
+        {title}
+      </div>
     );
   }
   if (varient == "grey-outline") {
@@ -72,8 +71,10 @@ const Button: React.FC<ButtonProps> = ({
       <div
         className={classNames(styles.greyOutlineBtnContainer, extraClass)}
         style={{ cursor: hoverable ? "pointer" : "default" }}
-        dangerouslySetInnerHTML={{ __html: title }}
-      ></div>
+      >
+        {" "}
+        {title}
+      </div>
     );
   }
 
@@ -82,8 +83,9 @@ const Button: React.FC<ButtonProps> = ({
       <div
         className={classNames(styles.blackOutlineBtnContainer, extraClass)}
         style={{ cursor: hoverable ? "pointer" : "default" }}
-        dangerouslySetInnerHTML={{ __html: title }}
-      ></div>
+      >
+        {title}
+      </div>
     );
   }
 
