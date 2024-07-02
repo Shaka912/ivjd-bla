@@ -1,18 +1,11 @@
 import HomeCarousel from "@/components/LandingPage/Carousel";
+import ProjectsSection from "@/components/LandingPage/Projects";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="bg-white max-h-screen max-w-screen h-screen bg-blend-darken relative">
-      {/* Main Image */}
-      {/* <Image
-        src="/main-image.webp"
-        alt="main image"
-        fill
-        className="z-0"
-        style={{ objectFit: "cover" }}
-      /> */}
       {/* Logo */}
       <div className="relative ">
         <div className="absolute top-56  w-full">
@@ -62,26 +55,33 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="">
+          {/* <div className="">
             <div className="pt-20 px-36 text-[#00000040] text-7xl font-normal  ">
               Un centro dedicado a la investigación de la historia, el arte y la
               cultura de España
             </div>
+          </div> */}
+
+          {/* animated projects section  */}
+
+          <ProjectsSection />
+          <div
+            className="text-black flex justify-between items-end  mt-[300px] p-4 md:p-5"
+            id="iii"
+          >
+            <a href="mailto:instvaldonjuan@hotmail.com">
+              <h2 className="text-3xl md:text-[40px] md:leading-[48px] max-w-[300px] md:max-w-[394px]">
+                Contacta con nosotros
+              </h2>
+            </a>
+            <h5 className="text-base md:text-2xl text-end">
+              Calle de Fortuny 43, Madrid
+            </h5>
           </div>
         </div>
       </div>
 
       {/* Content */}
-      {/* <div className="text-white flex justify-between items-end absolute bottom-0 left-0 right-0 p-4 md:p-5">
-        <a href="mailto:instvaldonjuan@hotmail.com">
-          <h2 className="text-3xl md:text-[40px] md:leading-[48px] max-w-[300px] md:max-w-[394px]">
-            Contacta con nosotros
-          </h2>
-        </a>
-        <h5 className="text-base md:text-2xl text-end">
-          Calle de Fortuny 43, Madrid
-        </h5>
-      </div> */}
     </main>
   );
 }
