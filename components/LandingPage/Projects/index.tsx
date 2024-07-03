@@ -4,53 +4,15 @@ import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import MotionSectionWrapper from "@/components/animation/MotionSectionWrapper/MotionSectionWrapper";
-import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/motion";
-
+import { motion, useMotionValue } from "framer-motion";
+import Link from "next/link";
+const FramerImage = motion(Image);
 gsap.registerPlugin(ScrollTrigger);
+
 function ProjectsSection() {
   const component = React.useRef(null);
   const textRef = React.useRef(null);
-  //   React.useEffect(() => {
-  //     // Define the animation
-  //     let ctx = gsap.context(() => {
-  //       const tl = gsap.timeline({
-  //         scrollTrigger: {
-  //           trigger: "#hero",
-  //           start: "top bottom",
-  //           end: "center center",
-  //           scrub: true, // Enable scrubbing
-  //           // pin: true,
-  //           refreshPriority: 100,
-  //         },
-  //       });
-
-  //       // Add animation to the timeline
-  //       tl.to("#image", {
-  //         rotationX: 0,
-  //         ease: "slow",
-  //         duration: 2,
-  //         height: "50vw",
-  //         scale: 0.9,
-  //       });
-  //       if (window.innerWidth > 768) {
-  //         gsap.to("#parallaxHeading", {
-  //           scrollTrigger: {
-  //             scrub: 1,
-  //             trigger: "#hero",
-  //             start: "30% center",
-  //             end: "70% center",
-  //           },
-  //           y: -280, // Adjust the value to control the parallax effect intensity
-  //           opacity: 0, // Adjust the opacity as desired
-  //           ease: "power1.out", // Easing function for smoother animation
-  //           scale: 0.5,
-  //         });
-  //       }
-  //     }, component);
-
-  //     return () => ctx.revert(); // cleanup!
-  //   });
 
   const image1Ref = React.useRef(null);
   const image2Ref = React.useRef(null);
@@ -121,6 +83,33 @@ function ProjectsSection() {
           </div>
         </div>
       </div>
+      {/* <div className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden dark:text-light">
+        <div
+          id="iii"
+          className={` w-full h-full inline-block z-0 bg-light p-32 dark:bg-dark xl:p-24 lg:p-16 md:p-12 sm:p-8 `}
+        >
+          <ul>
+            <Article
+              title="Form Validation"
+              img={"/homeImg2.png"}
+              date="10-04-2923"
+              link={"/"}
+            />
+            <Article
+              title="Form Validation"
+              img={"/homeImg2.png"}
+              date="10-04-2923"
+              link={"/"}
+            />
+            <Article
+              title="Form Validation"
+              img={"/homeImg2.png"}
+              date="10-04-2923"
+              link={"/"}
+            />
+          </ul>
+        </div>
+      </div> */}
       {/* </MotionSectionWrapper> */}
     </>
   );

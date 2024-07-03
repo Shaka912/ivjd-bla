@@ -1,5 +1,7 @@
 import HomeCarousel from "@/components/LandingPage/Carousel";
 import ProjectsSection from "@/components/LandingPage/Projects";
+import Section from "@/components/LandingPage/Section";
+import VisitingSection from "@/components/LandingPage/VisitingSection";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -65,19 +67,8 @@ export default function Home() {
           {/* animated projects section  */}
 
           <ProjectsSection />
-          <div
-            className="text-black flex justify-between items-end  mt-[300px] p-4 md:p-5"
-            id="iii"
-          >
-            <a href="mailto:instvaldonjuan@hotmail.com">
-              <h2 className="text-3xl md:text-[40px] md:leading-[48px] max-w-[300px] md:max-w-[394px]">
-                Contacta con nosotros
-              </h2>
-            </a>
-            <h5 className="text-base md:text-2xl text-end">
-              Calle de Fortuny 43, Madrid
-            </h5>
-          </div>
+          <Section />
+          <VisitingSection />
         </div>
       </div>
 
