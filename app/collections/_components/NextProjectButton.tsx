@@ -8,11 +8,11 @@ import Link from "next/link";
 
 interface Props {
   nextProjectSlug: string;
-  lang: Locale;
+
   color: string;
 }
 
-const NextProjectButton = ({ nextProjectSlug, lang, color }: Props) => {
+const NextProjectButton = ({ nextProjectSlug, color }: Props) => {
   if (!nextProjectSlug) return null;
 
   // Find the next project based on the slug
@@ -24,7 +24,6 @@ const NextProjectButton = ({ nextProjectSlug, lang, color }: Props) => {
     <div className="py-20 md:py-50 px-8 md:px-30 flex justify-end cursor-pointer">
       {nextProject && (
         <Link
-          lang={lang}
           href={`/projects/${nextProject.slug}`}
           className="flex flex-col group"
         >

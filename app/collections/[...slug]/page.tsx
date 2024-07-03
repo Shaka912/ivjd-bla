@@ -94,7 +94,7 @@ const ProjectDetail = async ({ params }: Props) => {
                   <img
                     src={item.image} // Use the image URL from the array
                     alt="Project Image"
-                    layout="fill"
+                    // layout="fill"
                     style={{ objectFit: "contain", height: "100%" }}
                   />
                 </div>
@@ -130,7 +130,6 @@ const ProjectDetail = async ({ params }: Props) => {
                   <img
                     src={"/plato.png"} // Use the local image path
                     alt="images gallery"
-                    fill
                     style={{
                       objectFit: "contain",
                       width: "96vw",
@@ -150,13 +149,7 @@ const ProjectDetail = async ({ params }: Props) => {
             <div className=" h-[30vw] grid grid-cols-2 pt-10">
               <div className="relative h-full aspect-w-1 aspect-h-1">
                 <div className="absolute inset-0">
-                  <img
-                    src={"/Jarra.png"}
-                    alt=""
-                    layout="fill"
-                    objectFit="contain"
-                    className="rounded-lg"
-                  />
+                  <img src={"/Jarra.png"} alt="" className="rounded-lg" />
                 </div>
               </div>
             </div>
@@ -164,13 +157,7 @@ const ProjectDetail = async ({ params }: Props) => {
               <div className=" h-[30vw] grid grid-cols-2 pt-10">
                 <div className="relative h-full aspect-w-1 aspect-h-1">
                   <div className="absolute inset-0 ">
-                    <img
-                      src={"/Jarron.png"}
-                      alt=""
-                      layout="fill"
-                      objectFit="contain"
-                      className="rounded-lg"
-                    />
+                    <img src={"/Jarron.png"} alt="" className="rounded-lg" />
                   </div>
                 </div>
               </div>
@@ -192,7 +179,6 @@ const ProjectDetail = async ({ params }: Props) => {
         {/* Next Project Section */}
         <NextProjectButton
           color={project.textColor}
-          lang={params.lang}
           nextProjectSlug={project.nextProjectSlug}
         />
       </div>

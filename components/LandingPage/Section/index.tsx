@@ -95,7 +95,7 @@ const Article = ({
         },
       }}
       viewport={{ once: true }}
-      className="dark:bg-dark relative w-full p-4 py-4 my-2 space-x-10 flex flex-row items-center justify-between bg-light text-dark first:mt-0 border-b border-solid border-black"
+      className="dark:bg-dark relative w-full p-4 py-4 my-2 space-x-10 flex flex-row items-center justify-between bg-light text-dark "
     >
       <MovingImg img={img} title={title} link={link} />
 
