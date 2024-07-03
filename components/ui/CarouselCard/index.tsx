@@ -6,9 +6,9 @@ interface props {
 function CarouselCard({ img }: props) {
   return (
     <>
-      <div className="w-[100%] ">
+      <div className=" ml-2 ">
         {/* Image Container */}
-        <div className=" relative w-[45vw] md:w-[40vw] lg:w-[25vw] h-[50vw] md:h-[45vw] lg:h-[35vw]">
+        <div className=" relative w-[45vw] md:w-[40vw] lg:w-[20vw] h-[50vw] md:h-[45vw] lg:h-[20vw]">
           <Image
             src={img}
             alt="News card"

@@ -11,8 +11,8 @@ function VisitingSection() {
   };
   return (
     <>
-      <div className="flex px-4 justify-between w-full h-[50vh]">
-        <div className="w-[40%]">
+      <div className="grid grid-cols-12 gap-4 px-4 w-full h-[70vh] justify-center items-center mt-72">
+        <div className="col-span-5 flex flex-col justify-end">
           <h2 className="text-2xl">VISITA</h2>
           <h5 className="mt-5 text-lg">Horario</h5>
           <div className="flex justify-between text-[#646464] mt-3">
@@ -28,7 +28,7 @@ function VisitingSection() {
             <p>00:00</p>
           </div>
         </div>
-        <div className="w-[60%]  flex justify-start items-start">
+        <div className="col-span-7 flex flex-col items-start overflow-hidden relative">
           <div>
             <Carousel carouselType="shopCard" options={OPTIONS}>
               <>
@@ -39,6 +39,7 @@ function VisitingSection() {
                 </CarosuelSlide>
               </>
             </Carousel>
+            <p className="absolute bottom-3 ml-10">SOLICITAR ENTRADA</p>
           </div>
         </div>
       </div>

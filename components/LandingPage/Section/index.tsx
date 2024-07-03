@@ -113,7 +113,7 @@ const Article = ({
 function Section() {
   return (
     <>
-      <main className="w-full mb-16 flex flex-col px-4  overflow-hidden dark:text-light">
+      <main className="w-full mb-16 flex flex-col px-4   dark:text-light">
         <h2 className="font-medium text-xl w-full ml-2   mt-32">
           {" "}
           COLECCIONES
