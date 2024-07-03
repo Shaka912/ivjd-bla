@@ -1,0 +1,14 @@
+:root {
+  --background-primary: #F5F5F5;
+  --background-secondary: #191919;
+  --background-terciary: #004555;
+  --background-acent: #006C8E;
+  --background-grey: #B0B0B0;
+
+ /* Content */
+ --content-high-dark: #191919;
+ --content-high-blue: #006C8E;
+ --content-mid: #838383;
+ --content-low: #004555;
+ --content-onhigh: #F5F5F5;
+}

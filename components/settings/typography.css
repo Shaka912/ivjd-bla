@@ -1,0 +1,47 @@
+/* for Large Devices */
+:root {
+  /* Super Title */
+  --text-supertitle: 8rem; /*128px*/
+ 
+  /* Title */
+  --text-title: 50px; /*50px*/
+
+  /* Subtitle */
+  --text-subtitle: 20px; 
+  
+  /* Card Title */
+  --text-card-title: 32px;
+
+  /* Card SubTitle */
+  --text-card-subtitle: 16px; 
+
+ /* Body */
+ --text-body: 16px; 
+  
+}
+
+
+/* For Smaller Devices */
+@media screen and (max-width: 768px) {
+  :root {
+    /* Super Title */
+    --text-supertitle: 40px; 
+ 
+    /* Title */
+    --text-title: 28px; 
+  
+    /* Subtitle */
+    --text-subtitle: 16px; 
+    
+    /* Card Title */
+    --text-card-title: 16px;
+  
+    /* Card SubTitle */
+    --text-card-subtitle: 14px; 
+  
+   /* Body */
+   --text-body: 14px; 
+
+
+  }
+}
