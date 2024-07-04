@@ -14,11 +14,14 @@
   z-index: 2;
   transition: all 0.3s ease-in-out;
   /* background-color: black; */
-  background-color: transparent;
+  /* background-color: transparent; */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/images/left.svg");
+  font-size: 36px;
+  color: white;
+  font-weight: 400;
+  /* background: url('/images/left.svg'); */
 }
 .button:hover {
   /* background-color: red; */
@@ -34,23 +37,51 @@
   fill: black;
 }
 .previousButton {
-  background: url("/images/left.svg");
+  /* background: url('/images/left.svg'); */
   background-size: contain;
   left: 10px;
 }
 .previousButton:hover {
-  background: url("/images/left-red.svg");
+  /* background: url('/images/left-red.svg'); */
   background-size: contain;
   /* background-color: red; */
 }
 .nextButton {
-  background: url("/images/right.svg");
+  /* background: url('/images/right.svg'); */
   background-size: contain;
   right: 10px;
 }
 .nextButton:hover {
-  background: url("/images/right-red.svg");
+  /* background: url('/images/right-red.svg'); */
   background-size: contain;
+}
+
+/* styles.css */
+.carouselStatus {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 30px;
+  display: flex;
+  gap: 12px;
+  font-weight: 400;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotateSlash {
+  display: inline-block;
+  animation: rotate 0.2s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {

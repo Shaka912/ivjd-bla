@@ -30,10 +30,6 @@ const CustomCarousel = ({ offset = 20, children, ...props }) => {
     // const scrollMax = carouselRef.current.scrollWidth - carouselWidth;
     const scrollXNew = scrollX > 0 ? scrollX - carouselWidth - offset : 0;
     setScrollX(scrollXNew < 0 ? 0 : scrollXNew);
-    console.log("ScrollX: ", scrollX);
-    console.log("carouselWidth: ", carouselWidth);
-    console.log("scrollXNew: ", scrollXNew);
-    console.log("scrollWidth: ", carouselRef.current.scrollWidth);
 
     carouselRef.current.scrollTo({ left: scrollXNew, behavior: "smooth" });
     // if (selectedItemIndex > 0) {
@@ -52,19 +48,6 @@ const CustomCarousel = ({ offset = 20, children, ...props }) => {
         : scrollX + carouselWidth + offset;
     setScrollX(scrollXNew);
     carouselRef.current.scrollTo({ left: scrollXNew, behavior: "smooth" });
-    console.log("scrollMax: ", scrollMax);
-    console.log("ScrollX: ", scrollX);
-    console.log("carouselWidth: ", carouselWidth);
-    console.log("scrollXNew: ", scrollXNew);
-    console.log("scrollWidth: ", carouselRef.current.scrollWidth);
-
-    // if (selectedItemIndex < totalCount - 1) {
-    //   setSelectedItemIndex(selectedItemIndex + 1);
-
-    //   //   console.log("Next", carouselRef.current.childNodes[0].offsetWidth);
-    //   //   carouselRef.current.style.left = `${carouselRef.current.childNodes[0].offsetWidth}px`;
-    //   //   console.log("Next", carouselRef.current.style);
-    // }
   };
 
   return (
@@ -88,44 +71,66 @@ const CustomCarousel = ({ offset = 20, children, ...props }) => {
   );
 };
 
-const ReactHomeCarousel = ({ children, autoPlay = false, ...props }) => {
+const ReactHomeCarousel = ({ children, autoPlay = true, ...props }) => {
+  const totalSlides = 3; // Update this if you change the number of slides
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [rotate, setRotate] = useState(false);
+
+  const onChange = (index) => {
+    setCurrentSlide(index);
+    setRotate(true); // Trigger the rotation
+    setTimeout(() => setRotate(false), 1000); // Reset the rotation class after 1s
+  };
   return (
-    <Carousel
-      showThumbs={false}
-      showArrows={true}
-      autoPlay={autoPlay}
-      infiniteLoop
-      showStatus={false}
-      stopOnHover={true}
-      showIndicators={false}
-      renderArrowPrev={(clickHandler) => (
-        <button
-          className={[styles.button, styles.previousButton].join(" ")}
-          onClick={clickHandler}
-          style={{ left: 10 }}
-          id="previousButton"
-          aria-label="Previous Button"
-        >
-          {/* <HiArrowSmallLeft className={styles.icon} /> */}
-          <img className={styles.icon} src="/Images/left.svg" />
-        </button>
-      )}
-      renderArrowNext={(clickHandler) => (
-        <button
-          className={[styles.button, styles.nextButton].join(" ")}
-          onClick={clickHandler}
-          style={{ right: 10 }}
-          id="nextButton"
-          aria-label="Next Button"
-        >
-          {/* <HiArrowSmallRight className={styles.icon} /> */}
-          <img className={styles.icon} src="/Images/right.svg" />
-        </button>
-      )}
-      {...props}
-    >
-      {children}
-    </Carousel>
+    <>
+      <Carousel
+        showThumbs={false}
+        showArrows={true}
+        onChange={onChange}
+        autoPlay={autoPlay}
+        interval={3000}
+        infiniteLoop
+        showStatus={false}
+        statusFormatter={(current, total) => `${current} of ${total}`}
+        stopOnHover={true}
+        showIndicators={false}
+        renderArrowPrev={(clickHandler) => (
+          <button
+            className={[styles.button, styles.previousButton].join(" ")}
+            onClick={clickHandler}
+            style={{ left: 10 }}
+            id="previousButton"
+            aria-label="Previous Button"
+          >
+            {"<"}
+
+            {/* <HiArrowSmallLeft className={styles.icon} /> */}
+            {/* <img className={styles.icon} src='/Images/left.svg' /> */}
+          </button>
+        )}
+        renderArrowNext={(clickHandler) => (
+          <button
+            className={[styles.button, styles.nextButton].join(" ")}
+            onClick={clickHandler}
+            style={{ right: 10 }}
+            id="nextButton"
+            aria-label="Next Button"
+          >
+            {">"}
+            {/* <HiArrowSmallRight className={styles.icon} /> */}
+            {/* <img className={styles.icon} src='/Images/right.svg' /> */}
+          </button>
+        )}
+        {...props}
+      >
+        {children}
+      </Carousel>
+      <div className={[styles.carouselStatus]}>
+        <span>{currentSlide + 1}</span>
+        <span className={rotate ? styles.rotateSlash : ""}>/</span>
+        <span>{totalSlides}</span>
+      </div>
+    </>
   );
 };
 
