@@ -6,6 +6,7 @@ import NextProjectButton from "../_components/NextProjectButton";
 import { projects } from "@/components/data/index";
 
 import projectImages from "@/components/data/index";
+import Footer from "@/components/shared/Footer";
 
 interface Props {
   params: {
@@ -57,6 +58,9 @@ const ProjectDetail = async ({ params }: Props) => {
             fill
             style={{ objectFit: "cover" }}
           />
+          <h1 className="text-7xl text-white absolute top-[400px] left-5 z-20">
+            Hello
+          </h1>
         </div>
       </div>
       {/* Content */}
@@ -65,6 +69,7 @@ const ProjectDetail = async ({ params }: Props) => {
         className="z-10 relative mt-[80vh]"
       >
         {/* Top Text Section */}
+
         {/* insitiute description  */}
         <div className=" py-20  grid  grid-flow-col">
           <div className=" grid-flow-col">
@@ -99,18 +104,18 @@ const ProjectDetail = async ({ params }: Props) => {
                 </div>
               ))}
 
-            <div className="text-[#FFFFFF]  pt-0">
+            <div className="text-[#FFFFFF]  pt-3">
               <p>España, S.XV</p>
               <p>Cerámica de loza dorada o reflejo metálico.</p>
               <p>90x46cm</p>
               <p>Período Nazarí.</p>
             </div>
-            <div className="text-[#FFFFFF]  pt-0">
+            <div className="text-[#FFFFFF]  pt-3">
               <p>Jarra de los Bérchules</p>
               <p>España, finales del S.XV-principios del S. XVI</p>
               <p>Período Nazarí</p>
             </div>
-            <div className="text-[#FFFFFF]  pt-0">
+            <div className="text-[#FFFFFF]  pt-3">
               <p>Plato</p>
               <p>Manises, España. </p>
               <p>1410-1440</p>
@@ -119,59 +124,48 @@ const ProjectDetail = async ({ params }: Props) => {
           </div>
           {/* Second Image Column */}
 
-          {project?.images?.slice(0, 1).length > 0 ? (
-            <div className="grid grid-cols-1 bg-black">
-              {project?.images?.slice(0, 1).map((image, index, arr) => (
-                <div
-                  key={index}
-                  className="relative aspect-[1/2] md:aspect-square  w-[96vw] h-[50vw]"
-                >
-                  <img
-                    src={"/plato.png"} // Use the local image path
-                    alt="images gallery"
-                    style={{
-                      objectFit: "contain",
-                      width: "96vw",
-                    }}
-                  />
-                </div>
-              ))}
+          <div className="grid grid-cols-1 ">
+            <div className=" aspect-[1/2] md:aspect-square  w-[96vw] h-[50vw]">
+              <img
+                src={"/plato.png"} // Use the local image path
+                alt="images gallery"
+                style={{
+                  objectFit: "contain",
+                  width: "96vw",
+                }}
+              />
             </div>
-          ) : null}
-          <div className="text-[#FFFFFF] mt-12">
+          </div>
+          {/* iamge description  */}
+          <div className="text-[#FFFFFF] mt-12 xl:mt-20">
             <p>Plato de la caza en la Albufera de Valencia. </p>
             <p>Manises, España. </p>
             <p>Tercer cuarto del S.XV.</p>
             <p>Cerámica de reflejo dorado y azul cobalto</p>
           </div>
-          <div className="grid grid-cols-2 ">
-            <div className=" h-[30vw] grid grid-cols-2 pt-10">
-              <div className="relative h-full aspect-w-1 aspect-h-1">
-                <div className="absolute inset-0">
-                  <img src={"/Jarra.png"} alt="" className="rounded-lg" />
-                </div>
+
+          <div className="grid grid-cols-2 gap-4 pt-10">
+            <div className="flex flex-col ">
+              <div className="relative w-full aspect-w-1 aspect-h-1">
+                <img src="/Jarra.png" alt="Jarra" className="object-cover" />
               </div>
-            </div>
-            <div className=" h-[30vw] w-28grid grid-row-2 ">
-              <div className=" h-[30vw] grid grid-cols-2 pt-10">
-                <div className="relative h-full aspect-w-1 aspect-h-1">
-                  <div className="absolute inset-0 ">
-                    <img src={"/Jarron.png"} alt="" className="rounded-lg" />
-                  </div>
-                </div>
-              </div>
-              <div className="text-[#FFFFFF] mt-9">
+              <div className="text-white mt-4 ">
                 <p>Jarra de los Donceles</p>
                 <p>España, S.XV</p>
                 <p>Cerámica de loza dorada o reflejo metálico.</p>
                 <p>Período Nazarí.</p>
               </div>
             </div>
-            <div className="text-[#FFFFFF]  mt-9">
-              <p>Jarra de los Donceles</p>
-              <p>España, S.XV</p>
-              <p>Cerámica de loza dorada o reflejo metálico.</p>
-              <p>Período Nazarí.</p>
+            <div className="flex flex-col ">
+              <div className="relative w-full aspect-w-1 aspect-h-1">
+                <img src="/Jarron.png" alt="Jarron" className="object-cover" />
+              </div>
+              <div className="text-white mt-4 ">
+                <p>Jarra de los Donceles</p>
+                <p>España, S.XV</p>
+                <p>Cerámica de loza dorada o reflejo metálico.</p>
+                <p>Período Nazarí.</p>
+              </div>
             </div>
           </div>
         </div>

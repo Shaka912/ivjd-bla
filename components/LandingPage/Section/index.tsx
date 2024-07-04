@@ -54,7 +54,7 @@ const MovingImg = ({
         onMouseLeave={handleMouseLeave}
       >
         <FramerImage
-          style={{ x: x, y: y }}
+          style={{ x: x, y: y, borderRadius: "10px" }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1, transition: { duration: 2 } }}
           ref={imgRef}
@@ -95,18 +95,18 @@ const Article = ({
         },
       }}
       viewport={{ once: true }}
-      className="dark:bg-dark relative w-full p-4 py-4 my-2 space-x-10 flex flex-row items-center justify-between bg-light text-dark "
+      className="dark:bg-dark relative w-full p-4 py-4 my-2 space-x-10 flex flex-row items-center justify-between bg-light border-b  border-black text-dark "
     >
       <MovingImg img={img} title={title} link={link} />
 
       <h2 className={"capitalize text-base  hover:underline dark:text-light"}>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
       </h2>
-      <div>
-        <span className="text-base  pl-4 dark:text-primaryDark sm:self-start sm:pl-0 xs:text-sm">
+      <Link href={"/collections/1"}>
+        <span className="text-base hover:underline  pl-4 dark:text-primaryDark sm:self-start sm:pl-0 xs:text-sm">
           {date}
         </span>
-      </div>
+      </Link>
     </motion.li>
   );
 };
@@ -114,7 +114,7 @@ function Section() {
   return (
     <>
       <main className="w-full mb-16 flex flex-col px-4   dark:text-light">
-        <h2 className="font-medium text-xl w-full ml-2   mt-32">
+        <h2 className="font-medium text-xl w-full ml-4   mt-32">
           {" "}
           COLECCIONES
         </h2>
@@ -122,25 +122,25 @@ function Section() {
           <Article
             title="Form Validation"
             img={"/rightImg.png"}
-            date="10-04-2923"
+            date="Ver colección"
             link={"/"}
           />
           <Article
             title="Form Validation"
             img={"/rightImg.png"}
-            date="10-04-2923"
+            date="Ver colección"
             link={"/"}
           />
           <Article
             title="Form Validation"
             img={"/rightImg.png"}
-            date="10-04-2923"
+            date="Ver colección"
             link={"/"}
           />
           <Article
             title="Form Validation"
             img={"/rightImg.png"}
-            date="10-04-2923"
+            date="Ver colección"
             link={"/"}
           />
         </ul>
