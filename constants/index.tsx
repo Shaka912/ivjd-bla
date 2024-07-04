@@ -17,7 +17,7 @@ export const navbarList = [
   },
   {
     title: "Contacto",
-    link: "#",
+    link: "/contacto",
   },
 ];
 

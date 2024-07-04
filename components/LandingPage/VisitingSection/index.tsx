@@ -12,7 +12,7 @@ function VisitingSection() {
   return (
     <>
       <div
-        className="grid grid-cols-12 gap-4 px-4 w-full h-[70vh] justify-center items-center mt-72"
+        className="grid grid-cols-12 gap-4 px-4 w-full h-[70vh] justify-center items-center mt-60"
         id="visit"
       >
         <div className="col-span-5 flex flex-col justify-end">

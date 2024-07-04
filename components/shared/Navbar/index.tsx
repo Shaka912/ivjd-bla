@@ -44,30 +44,44 @@ function Navbar() {
         {/* Right Container */}
 
         <div className="p-5 flex items-center md:gap-24 z-10  ">
-          {navbarList.map((item, index) => (
-            <ScrollLink
-              to={item.link.replace("#", "")}
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              key={index}
-              className={` leading-[24px] cursor-pointer  ${
-                activeLink === item.link ? "underline" : ""
-              }`}
-              onClick={() => handleLinkClick(item.link)}
-            >
-              <Text
-                tag="h5"
-                variant="subtitle"
-                className={[
-                  item?.title === "El instituto" && "hidden md:block gap-0",
-                ].join(" ")}
+          {navbarList.map((item, index) =>
+            item.title === "Contacto" ? (
+              <Link href={item.link} key={index} passHref>
+                <div
+                  className={`leading-[24px] cursor-pointer ${
+                    activeLink === item.link ? "underline" : ""
+                  }`}
+                >
+                  <Text tag="h5" variant="subtitle">
+                    {item.title}
+                  </Text>
+                </div>
+              </Link>
+            ) : (
+              <ScrollLink
+                to={item.link.replace("#", "")}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                key={index}
+                className={` leading-[24px] cursor-pointer  ${
+                  activeLink === item.link ? "underline" : ""
+                }`}
+                onClick={() => handleLinkClick(item.link)}
               >
-                {item?.title}
-              </Text>
-            </ScrollLink>
-          ))}
+                <Text
+                  tag="h5"
+                  variant="subtitle"
+                  className={[
+                    item?.title === "El instituto" && "hidden md:block gap-0",
+                  ].join(" ")}
+                >
+                  {item?.title}
+                </Text>
+              </ScrollLink>
+            )
+          )}
         </div>
       </div>
     </>
