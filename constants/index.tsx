@@ -1,15 +1,15 @@
 export const navbarList = [
   {
     title: "El instituto",
-    link: "#",
+    link: "#instute",
   },
   {
     title: "Colecciones",
-    link: "#",
+    link: "#collection",
   },
   {
     title: "Visita",
-    link: "#",
+    link: "#visit",
   },
   {
     title: "Noticias",

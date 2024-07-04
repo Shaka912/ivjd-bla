@@ -32,7 +32,7 @@ export default function Home() {
             <HomeCarousel />
 
             {/* insitiute description  */}
-            <div className=" py-20  grid  grid-flow-col">
+            <div className=" py-20  grid  grid-flow-col" id="instute">
               <div className=" grid-flow-col">
                 <div className="text-xl text-[#000000] px-7 pr-48">
                   EL INSTITUTO
@@ -63,16 +63,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* <div className="">
-            <div className="pt-20 px-36 text-[#00000040] text-7xl font-normal  ">
-              Un centro dedicado a la investigación de la historia, el arte y la
-              cultura de España
-            </div>
-          </div> */}
 
             {/* animated projects section  */}
 
             <ProjectsSection />
+
             <Section />
             <VisitingSection />
 

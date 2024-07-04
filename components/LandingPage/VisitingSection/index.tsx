@@ -11,7 +11,10 @@ function VisitingSection() {
   };
   return (
     <>
-      <div className="grid grid-cols-12 gap-4 px-4 w-full h-[70vh] justify-center items-center mt-72">
+      <div
+        className="grid grid-cols-12 gap-4 px-4 w-full h-[70vh] justify-center items-center mt-72"
+        id="visit"
+      >
         <div className="col-span-5 flex flex-col justify-end">
           <h2 className="text-2xl">VISITA</h2>
           <h5 className="mt-5 text-lg">Horario</h5>
