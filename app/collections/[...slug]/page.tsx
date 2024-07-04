@@ -4,8 +4,7 @@ import Text from "@/components/ui/typography/Typography";
 import Link from "next/link";
 import NextProjectButton from "../_components/NextProjectButton";
 import { projects } from "@/components/data/index";
-import { PortableText } from "@portabletext/react";
-import { protableTextSettingsComponents } from "@/components/settings/portableTextSettings";
+
 import projectImages from "@/components/data/index";
 
 interface Props {
