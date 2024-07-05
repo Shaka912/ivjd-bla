@@ -1,4 +1,25 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
+@tailwind components;
+@tailwind utilities;
+
+.custom-checkbox {
+  appearance: none; /* Remove default styling */
+  height: 20px; /* Height of the checkbox */
+  width: 20px; /* Width of the checkbox */
+  background-color: white; /* Default background color */
+  border: 2px solid black; /* Border color */
+  border-radius: 5px; /* Border radius for rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-checkbox:checked {
+  background-color: black; /* Background color when checked */
+}
+
+.custom-checkbox:checked::after {
+  content: "✓"; /* Checkmark symbol */
+  color: white; /* Checkmark color */
+  font-size: 14px; /* Checkmark size */
+}

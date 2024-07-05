@@ -33,77 +33,59 @@ export default function Home() {
             </div>
 
             {/* insitiute description  */}
-            <div className="grid grid-cols-2  pt-4 px-7 gap-x-7 ">
-              <div className="h-[20vw]">
-                <div className="text-base text-[#000000]  ">Nombre</div>
-                <TextInput
-                  placeholder="Nombre"
-                  className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500 border border-gray-300 rounded-xl p-4   h-12 focus:outline-none focus:ring-0 focus:border-gray-300"
-                />
-                <div className="text-base text-[#000000] pt-7 ">
-                  Correo electrónico
+            <div className="grid grid-cols-2 gap-x-7 pt-4 px-7">
+              <div className="col-span-1">
+                <div className="">
+                  <div className="text-base text-[#000000]">Nombre</div>
+                  <TextInput
+                    placeholder="Nombre"
+                    className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500 border border-gray-300 rounded-xl p-4 h-12 focus:outline-none focus:ring-0 focus:border-gray-300"
+                  />
+                  <div className="text-base text-[#000000] pt-7">
+                    Correo electrónico
+                  </div>
+                  <TextInput
+                    placeholder="Correo electrónico"
+                    className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500 border border-gray-300 rounded-xl p-4 h-12 focus:outline-none focus:ring-0 focus:border-gray-300"
+                  />
+                  <div className="text-base text-[#000000] pt-7">Mensaje</div>
+                  <Textarea
+                    placeholder="Start typing here..."
+                    className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500 border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-0 focus:border-gray-300"
+                  />
+                  <div className="text-base text-[#000000] pt-6">
+                    Política de privacidad*
+                  </div>
+                  <div className="pt-2">
+                    <label className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        className="custom-checkbox"
+                        checked={isChecked}
+                        onChange={handleCheckboxChange}
+                      />
+                      <span className="text-base text-[#666666] pl-4">
+                        Acepto los términos y condiciones y la política de
+                        privacidad (más información en la parte inferior)
+                      </span>
+                    </label>
+                  </div>
+                  <div className="pt-5">
+                    <button className="bg-black w-20 h-10 rounded-xl text-white text-base">
+                      Enviar
+                    </button>
+                  </div>
                 </div>
-                <TextInput
-                  placeholder="Correo electrónico"
-                  className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500  border border-gray-300 rounded-xl p-4  h-12 focus:outline-none focus:ring-0 focus:border-gray-300"
-                />
-                <div className="text-base text-[#000000] pt-7 ">Mensaje</div>
-                <Textarea
-                  placeholder="Start typing here..."
-                  className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500  border border-gray-300 rounded-xl p-4   focus:outline-none focus:ring-0 focus:border-gray-300"
-                />
-                <div className="text-base text-[#000000] pt-6 ">
-                  Política de privacidad*
-                </div>
-                <div className="pt-2">
-                  <label className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox h-5 w-5 text-blue-500"
-                      checked={isChecked}
-                      onChange={handleCheckboxChange}
-                    />
-                    <span className="text-base text-gray-800 pl-4">
-                      Acepto los términos y condiciones y la poítica de
-                      privacidad (más información en la parte inferior)
-                    </span>
-                  </label>
-                </div>
-                <div className="pt-3 ">
-                  <button className="bg-black w-16 h-8 rounded-md text-white ">
-                    {" "}
-                    Enviar
-                  </button>
-                </div>
-                {/* <div className="flex items-center space-x-2">
-                  <Checkbox id="include" defaultChecked />
-                  <label
-                    htmlFor="include"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    Allow administrators to change the directory.
-                  </label>
-                </div> */}
               </div>
-              <div className="bg-black  ">
-                {/* <img
+              <div className="col-span-1 h-full">
+                <img
                   src={"/Captura.png"} // Use the local image path
                   alt="images gallery"
-                  style={{
-                    objectFit: "contain",
-                    // width: "47vw",
-                    height: "100%",
-                  }}
-                /> */}
-                <Image
-                  width={700}
-                  height={9}
-                  style={{ objectFit: "contain" }}
-                  src="/Captura.png"
-                  alt="logo"
+                  className="object-cover w-full h-full"
                 />
               </div>
             </div>
+
             <VisitingSection />
             {/* Footer  */}
             <Footer />
