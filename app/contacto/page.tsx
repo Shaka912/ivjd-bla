@@ -4,8 +4,7 @@ import Navbar from "@/components/shared/Navbar";
 import Image from "next/image";
 import { TextInput, Textarea } from "@tremor/react";
 import React, { useState } from "react";
-import Button from "@/components/ui/Button";
-import Link from "next/link";
+
 import VisitingSection from "@/components/LandingPage/VisitingSection";
 
 export default function Home() {
@@ -86,7 +85,7 @@ export default function Home() {
               </div>
             </div>
 
-            <VisitingSection />
+            {/* <VisitingSection /> */}
             {/* Footer  */}
             <Footer />
           </div>

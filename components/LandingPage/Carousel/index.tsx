@@ -3,20 +3,27 @@ import { ReactHomeCarousel } from "@/components/ui/CustomCarousel";
 import { homeCarousel } from "@/constants";
 import Card from "@/components/ui/Card";
 import Image from "next/image";
-function HomeCarousel() {
+import { urlForImage } from "@/sanity/lib/image";
+interface cardArrayProp {
+  data: {
+    image: typeof Image;
+    description: string;
+  }[];
+}
+function HomeCarousel({ data }: cardArrayProp) {
   return (
     <>
       <div className={" overflow-hidden w-full  relative "}>
         <ReactHomeCarousel>
-          {homeCarousel.map((card, index) => {
+          {data.map((card, index) => {
             return (
               <Card
-                key={card.id}
-                title={card.title}
-                imgUrl={card?.image}
+                key={index}
+                //@ts-ignore
+                imgUrl={urlForImage(card.image) || ""}
                 // videoUrl={card?.video_url}
-                link={card?.link}
-                featured={card?.featured}
+                // link={card?.link}
+                // featured={card?.featured}
                 main={index === 1}
                 // proxy={card?.proxy}
                 // liveText={card?.live_text}

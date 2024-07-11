@@ -7,10 +7,14 @@ import MotionSectionWrapper from "@/components/animation/MotionSectionWrapper/Mo
 import { fadeIn } from "@/utils/motion";
 import { motion, useMotionValue } from "framer-motion";
 import Link from "next/link";
+import { HomeResearchCentreProp } from "@/sanity/api/type";
+import { urlForImage } from "@/sanity/lib/image";
 const FramerImage = motion(Image);
 gsap.registerPlugin(ScrollTrigger);
-
-function ProjectsSection() {
+interface Props {
+  data: HomeResearchCentreProp;
+}
+function HomeResearchCentre({ data }: Props) {
   const component = React.useRef(null);
   const textRef = React.useRef(null);
 
@@ -59,13 +63,12 @@ function ProjectsSection() {
       <div className="   relative overflow-hidden h-[600px]" ref={component}>
         <p className="text-[#00000040] px-36 text-7xl font-normal absolute top-28 flex justify-center">
           {" "}
-          Un centro dedicado a la investigación de la historia, el arte y la
-          cultura de España
+          {data.main.title || " "}
         </p>
         <div className="w-full flex justify-between px-4  " id="hero">
           <div id="image" className="flex   " ref={image1Ref}>
             <Image
-              src={"/leftImg.jfif"}
+              src={urlForImage(data.main.leftImage) || ""}
               alt="left"
               width={300}
               height={380}
@@ -74,7 +77,7 @@ function ProjectsSection() {
           </div>
           <div id="image" className=" flex    " ref={image2Ref}>
             <Image
-              src={"/rightImg.png"}
+              src={urlForImage(data.main.rightImage) || ""}
               alt="right"
               width={400}
               height={500}
@@ -115,4 +118,4 @@ function ProjectsSection() {
   );
 }
 
-export default ProjectsSection;
+export default HomeResearchCentre;

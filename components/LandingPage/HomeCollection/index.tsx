@@ -3,19 +3,14 @@ import React from "react";
 import { motion, useMotionValue } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { HomeCollectionProp } from "@/sanity/api/type";
+import { urlForImage } from "@/sanity/lib/image";
 const article2 = "/homeImg1.png";
 const FramerImage = motion(Image);
-interface MovingImgProps {
-  img: string;
-  title: string;
-  link: string;
+interface Props {
+  data: HomeCollectionProp;
 }
-interface ArticleProps {
-  img: string;
-  title: string;
-  date: string;
-  link: string;
-}
+
 const MovingImg = ({
   img,
   title,
@@ -78,11 +73,13 @@ const Article = ({
   title,
   date,
   link,
+  subTitle,
 }: {
   img: any;
   title: any;
   date: any;
   link: any;
+  subTitle: any;
 }) => {
   return (
     <motion.li
@@ -100,9 +97,9 @@ const Article = ({
       <MovingImg img={img} title={title} link={link} />
 
       <h2 className={"capitalize text-base  hover:underline dark:text-light"}>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        {subTitle}
       </h2>
-      <Link href={"/collections/1"}>
+      <Link href={link}>
         <span className="text-base hover:underline  pl-4 dark:text-primaryDark sm:self-start sm:pl-0 xs:text-sm">
           {date}
         </span>
@@ -110,7 +107,7 @@ const Article = ({
     </motion.li>
   );
 };
-function Section() {
+function HomeCollections({ data }: Props) {
   return (
     <>
       <main
@@ -118,38 +115,23 @@ function Section() {
         id="collection"
       >
         <h2 className="font-medium text-xl w-full ml-4   mt-32">
-          {" "}
-          COLECCIONES
+          {data.title}
         </h2>
         <ul>
-          <Article
-            title="Form Validation"
-            img={"/rightImg.png"}
-            date="Ver colección"
-            link={"/"}
-          />
-          <Article
-            title="Form Validation"
-            img={"/rightImg.png"}
-            date="Ver colección"
-            link={"/"}
-          />
-          <Article
-            title="Form Validation"
-            img={"/rightImg.png"}
-            date="Ver colección"
-            link={"/"}
-          />
-          <Article
-            title="Form Validation"
-            img={"/rightImg.png"}
-            date="Ver colección"
-            link={"/"}
-          />
+          {data.collectionItems.map((item, index) => (
+            <Article
+              key={index}
+              title={item.title || ""}
+              img={urlForImage(item.image) || ""}
+              subTitle={item.subTitle}
+              date={item.link.title || ""}
+              link={item.link.link || ""}
+            />
+          ))}
         </ul>
       </main>
     </>
   );
 }
 
-export default Section;
+export default HomeCollections;
