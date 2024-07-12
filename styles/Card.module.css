@@ -194,13 +194,10 @@
   }
   .container {
     position: relative;
-    width: 270px;
+    width: 100%;
     min-width: 270px;
-    height: 400px;
+    height: 600px;
     overflow: hidden;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
   }
   .content {
     position: absolute;
@@ -234,6 +231,7 @@
   }
   .image {
     object-fit: cover;
+    width: 100%;
   }
   .logo {
     width: 24.01px;

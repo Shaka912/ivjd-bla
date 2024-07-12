@@ -96,7 +96,11 @@ const Article = ({
     >
       <MovingImg img={img} title={title} link={link} />
 
-      <h2 className={"capitalize text-base  hover:underline dark:text-light"}>
+      <h2
+        className={
+          "capitalize text-base  hover:underline dark:text-light hidden md:block"
+        }
+      >
         {subTitle}
       </h2>
       <Link href={link}>

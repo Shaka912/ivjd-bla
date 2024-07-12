@@ -48,9 +48,6 @@ function HomeResearchCentre({ data }: Props) {
             start: "top bottom", // Start when the top of the component reaches the bottom
             end: "top top", // End when the top of the component reaches the top
             scrub: true, // Smooth transition
-            // onEnter: () => gsap.to(image, { opacity: 0 }), // Fade out when scrolling down
-            // onLeaveBack: () => gsap.to(image, { opacity: 1 }), // Fade in when scrolling back
-            // toggleActions: "play none none reverse",
           },
         }
       );
@@ -61,18 +58,25 @@ function HomeResearchCentre({ data }: Props) {
     <>
       {/* <MotionSectionWrapper id="home-hero-section"> */}
       <div className="   relative overflow-hidden h-[600px]" ref={component}>
-        <p className="text-[#00000040] px-36 text-7xl font-normal absolute top-28 flex justify-center">
+        <p className="text-[#00000040] px-7 md:px-36 md:text-7xl text-[40px] font-normal absolute top-28 flex justify-center">
           {" "}
           {data.main.title || " "}
         </p>
-        <div className="w-full flex justify-between px-4  " id="hero">
-          <div id="image" className="flex   " ref={image1Ref}>
+        <div
+          className="w-full flex justify-between px-4  md:mt-0 absolute top-64"
+          id="hero"
+        >
+          <div
+            id="image"
+            className="flex  relative -bottom-16 "
+            ref={image1Ref}
+          >
             <Image
               src={urlForImage(data.main.leftImage) || ""}
               alt="left"
               width={300}
               height={380}
-              className=""
+              className="w-48 h-[200px] md:h-full md:w-full"
             />
           </div>
           <div id="image" className=" flex    " ref={image2Ref}>
@@ -81,39 +85,11 @@ function HomeResearchCentre({ data }: Props) {
               alt="right"
               width={400}
               height={500}
-              className=""
+              className="w-48 h-[220px] md:h-full md:w-full object-contain"
             />
           </div>
         </div>
       </div>
-      {/* <div className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden dark:text-light">
-        <div
-          id="iii"
-          className={` w-full h-full inline-block z-0 bg-light p-32 dark:bg-dark xl:p-24 lg:p-16 md:p-12 sm:p-8 `}
-        >
-          <ul>
-            <Article
-              title="Form Validation"
-              img={"/homeImg2.png"}
-              date="10-04-2923"
-              link={"/"}
-            />
-            <Article
-              title="Form Validation"
-              img={"/homeImg2.png"}
-              date="10-04-2923"
-              link={"/"}
-            />
-            <Article
-              title="Form Validation"
-              img={"/homeImg2.png"}
-              date="10-04-2923"
-              link={"/"}
-            />
-          </ul>
-        </div>
-      </div> */}
-      {/* </MotionSectionWrapper> */}
     </>
   );
 }

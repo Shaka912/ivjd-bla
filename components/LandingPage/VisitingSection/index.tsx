@@ -22,10 +22,10 @@ function VisitingSection({ data }: Props) {
   return (
     <>
       <div
-        className="grid grid-cols-12 gap-4 px-4 w-full h-[70vh] justify-center items-center mt-60"
+        className="grid grid-cols-12 gap-4 px-4 w-full h-[70vh] justify-center items-center md:mt-60 mt-20"
         id="visit"
       >
-        <div className="col-span-5 flex flex-col justify-end">
+        <div className="md:col-span-5 col-span-12 flex flex-col justify-end">
           <h2 className="text-2xl">{data.heading}</h2>
           <h5 className="mt-5 text-lg">{data.subHeading}</h5>
           {Object.entries(data.Hours).map(([day, hours]) => (
@@ -35,7 +35,7 @@ function VisitingSection({ data }: Props) {
             </div>
           ))}
         </div>
-        <div className="col-span-7 flex flex-col items-start overflow-hidden relative">
+        <div className="md:col-span-7 col-span-12 flex flex-col items-start overflow-hidden relative">
           <div>
             <Carousel carouselType="shopCard" options={OPTIONS}>
               <>

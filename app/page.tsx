@@ -29,7 +29,7 @@ export default async function Home() {
   return (
     <>
       <Navbar />
-      <main className="bg-white max-h-screen max-w-screen h-screen bg-blend-darken relative">
+      <main className="bg-white max-h-screen max-w-screen w-screen h-screen bg-blend-darken ">
         {/* Logo */}
         <div className="relative ">
           <div className="absolute top-56  w-full">
