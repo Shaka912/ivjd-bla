@@ -29,12 +29,6 @@ const ProjectDetail = async ({ params }: Props) => {
     year: "2023",
     title: "Project Title",
     description: "Project description goes here.",
-    // description:  "Project description goes here." [
-    //   {
-    //     type: "paragraph",
-    //     children: [{ text: "Project description goes here." }],
-    //   },
-    // ],
     images: [
       "/homeImg2.png", // Local image path
       "/homeImg1.png", // Local image path
@@ -52,34 +46,35 @@ const ProjectDetail = async ({ params }: Props) => {
         backgroundColor: backgroundColor,
         color: textColor,
       }}
-      className={`pb-[103px]`}
+      className={`pb-[103px] w-screen min-w-full`}
     >
-      <div className="fixed top-0 right-0 left-0 bottom-0 -z-10">
-        <div className="relative w-screen h-screen">
+      <div className="fixed inset-0  -z-10 w-screen h-[80vh]">
+        <div className="relative w-full h-full">
           <Image
             src={urlForImage(collection.featuredImage) || ""}
             alt="Hero image"
             fill
             style={{ objectFit: "cover" }}
           />
-          <h1 className="text-7xl  absolute top-[400px] left-5 z-20">
-            {collection.title}
-          </h1>
         </div>
+        {/* <h1 className="text-7xl  fixed bottom-52 z-20">{collection.title}</h1> */}
       </div>
       {/* Content */}
+      <h1 className="text-7xl  absolute bottom-56 md:bottom-36 left-5">
+        {collection.title}
+      </h1>
       <div
         style={{ backgroundColor: backgroundColor }}
-        className="z-10 relative mt-[80vh]"
+        className="z-10 relative mt-[80vh] w-fit"
       >
         {/* Top Text Section */}
 
         {/* insitiute description  */}
-        <div className=" py-20  grid  grid-flow-col">
-          <div className=" grid-flow-col">
-            <div className="text-xl text-[#B7B7B7] px-7 pr-48">INFORMACIÓN</div>
+        <div className="py-20 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="text-xl text-[#B7B7B7] px-7 md:pr-48">
+            INFORMACIÓN
           </div>
-          <div className="grid grid-flow-row px-7 pl-40">
+          <div className="px-7 md:pl-40">
             <div
               className="text-base font-extralight leading-5 tracking-wide"
               style={{ color: textColor }}
@@ -93,16 +88,16 @@ const ProjectDetail = async ({ params }: Props) => {
         </div>
 
         {/* Images Section */}
-        <div className="px-8 md:px-30 mt-30 md:mt-4 flex flex-col gap-11">
+        <div className="px-8 md:px-30 mt-30 md:mt-4 flex flex-col md:gap-11">
           {/* First Images Row */}
 
-          <div className="grid grid-cols-3 gap-x-24 mb-20 ">
+          <div className="grid md:grid-cols-3 grid-cols-1  md:gap-x-24 md:mb-20 mb-5">
             {collection.collection1R.length > 0 &&
               collection.collection1R.map((item, index, arr) => (
                 <>
                   <div
                     key={index}
-                    className=" w-fit h-full col-span-1 relative"
+                    className=" w-fit h-full col-span-1 relative md:block flex flex-col justify-center mb-6 md:mb-0"
                   >
                     <img
                       src={urlForImage(item.image) || ""}
@@ -124,7 +119,7 @@ const ProjectDetail = async ({ params }: Props) => {
           {/* Second Image Column */}
 
           <div className="grid grid-cols-1 ">
-            <div className=" aspect-[1/2] md:aspect-square  w-[96vw] h-[50vw]">
+            <div className=" aspect-[1/2] md:aspect-square  md:w-[96vw] h-[50vw] w-full">
               <img
                 src={urlForImage(collection.featuredImage1.image) || ""} // Use the local image path
                 alt="images gallery"
@@ -136,7 +131,7 @@ const ProjectDetail = async ({ params }: Props) => {
             </div>
           </div>
           {/* iamge description  */}
-          <div className=" mt-12 xl:mt-20">
+          <div className="mt-4 md:mt-12 xl:mt-20">
             {collection.featuredImage1.description
               .split("\n")
               .map((line, lineIndex) => (
@@ -146,15 +141,15 @@ const ProjectDetail = async ({ params }: Props) => {
               ))}
           </div>
 
-          <div className="grid grid-cols-2 gap-4 pt-10">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-4 pt-10">
             {collection.collection2R.map((item, index) => (
               <>
-                <div className="flex flex-col">
-                  <div className="relative w-full aspect-w-1 aspect-h-1 ">
+                <div className="flex flex-col justify-center mt-5 md:mt-0">
+                  <div className=" w-full md:w-fit aspect-w-1 aspect-h-1 ">
                     <img
                       src={urlForImage(item.image) || ""}
                       alt="Jarra"
-                      className="object-cover"
+                      className="object-cover w-full h-full"
                     />
                   </div>
                   <div className=" mt-4 ">
@@ -171,7 +166,7 @@ const ProjectDetail = async ({ params }: Props) => {
         </div>
         {/* Next Project Section */}
         <NextProjectButton
-          color={project.textColor}
+          color={collection.textColor}
           nextProjectSlug={project.nextProjectSlug}
         />
       </div>

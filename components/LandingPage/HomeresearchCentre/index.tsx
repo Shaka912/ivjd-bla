@@ -63,7 +63,7 @@ function HomeResearchCentre({ data }: Props) {
           {data.main.title || " "}
         </p>
         <div
-          className="w-full flex justify-between px-4  md:mt-0 absolute top-64"
+          className="w-full flex justify-between px-4  md:mt-0 absolute top-64 md:top-0"
           id="hero"
         >
           <div
