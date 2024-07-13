@@ -55,6 +55,14 @@ export const pageType = defineField({
           name: "Home Visit",
           type: "homeVisit",
         }),
+        defineArrayMember({
+          name: "contactSection",
+          type: "contactSection",
+        }),
+        defineArrayMember({
+          name: "contactHero",
+          type: "contactHero",
+        }),
       ],
     }),
   ],

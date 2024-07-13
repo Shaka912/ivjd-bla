@@ -11,7 +11,12 @@ export const contactHero = defineType({
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
-
+    defineField({
+      name: "logo",
+      type: "image",
+      options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: "description",
       type: "array",
@@ -20,39 +25,12 @@ export const contactHero = defineType({
           type: "block",
         },
       ],
-      validation: (Rule) => Rule.required(),
     }),
-
     defineField({
-      name: "contactDetail",
-      title: "Contact Detail",
-      type: "array",
-      of: [
-        defineArrayMember({
-          name: "contactInfoDetail",
-          title: "ContactInfo",
-          type: "object",
-          fields: [
-            defineField({
-              name: "title",
-              title: "Title",
-              type: "string",
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: "description",
-              title: "Description",
-              type: "string",
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: "link",
-              title: "Link",
-              type: "string",
-            }),
-          ],
-        }),
-      ],
+      name: "rightImage",
+      type: "image",
+      options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
     }),
   ],
   icon: DocumentTextIcon,

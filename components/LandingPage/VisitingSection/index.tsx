@@ -1,9 +1,11 @@
+"use client";
 import Carousel, { CarosuelSlide } from "@/components/ui/Carousel/Carousel";
 import React from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import CarouselCard from "@/components/ui/CarouselCard";
 import { HomeVistingProp } from "@/sanity/api/type";
 import { urlForImage } from "@/sanity/lib/image";
+import { usePathname } from "next/navigation";
 interface Props {
   data: HomeVistingProp;
 }
@@ -12,6 +14,7 @@ const capitalizeFirstLetter = (string: string) => {
   if (!string) return "";
   return string[0].toUpperCase() + string.slice(1);
 };
+
 function VisitingSection({ data }: Props) {
   const OPTIONS: EmblaOptionsType = {
     // dragFree: false,
@@ -19,10 +22,13 @@ function VisitingSection({ data }: Props) {
     watchSlides: true,
     watchResize: true,
   };
+  const pathName = usePathname();
+  console.log(pathName);
+  const kk = pathName === "/contacto";
   return (
     <>
       <div
-        className="grid grid-cols-12 gap-4 px-4 w-full h-[70vh] justify-center items-center md:mt-60 mt-20"
+        className={`grid grid-cols-12 gap-4 px-4 w-full h-[70vh] justify-center items-center ${kk ? "md:mt-30 mt-20" : "md:mt-60 mt-20"} `}
         id="visit"
       >
         <div className="md:col-span-5 col-span-12 flex flex-col justify-end">

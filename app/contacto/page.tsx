@@ -1,18 +1,26 @@
-"use client";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import Image from "next/image";
-import { TextInput, Textarea } from "@tremor/react";
-import React, { useState } from "react";
 
 import VisitingSection from "@/components/LandingPage/VisitingSection";
+import ContactForm from "@/components/ContactPage/ContactForm";
+import { getPage } from "@/sanity/api/sanity.queries";
+import { urlForImage } from "@/sanity/lib/image";
 
-export default function Home() {
-  const [isChecked, setIsChecked] = useState(false);
+export default async function Page() {
+  const contact = await getPage(`contact-es`);
+  const home = await getPage(`home-es`);
+  function getSection(section: any) {
+    if (section._type === "Home Visit") {
+      return (
+        <>
+          <VisitingSection data={section} />
+        </>
+      );
+    }
 
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
+    return null;
+  }
   return (
     <>
       <Navbar />
@@ -20,74 +28,33 @@ export default function Home() {
         {/* Logo */}
         <div className="relative ">
           <div className="absolute top-56  w-full">
-            <div className=" flex items-center pt-4 pb-4 px-7 ">
-              <Image
-                width={70}
-                height={73}
-                style={{ objectFit: "contain" }}
-                src="/logo.png"
-                alt="logo"
-              />
-              <h1 className=" text-6xl ml-10">Contacto</h1>
-            </div>
-
-            {/* insitiute description  */}
-            <div className="grid grid-cols-2 gap-x-7 pt-4 px-7">
-              <div className="col-span-1">
-                <div className="">
-                  <div className="text-base text-[#000000]">Nombre</div>
-                  <TextInput
-                    placeholder="Nombre"
-                    className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500 border border-gray-300 rounded-xl p-4 h-12 focus:outline-none focus:ring-0 focus:border-gray-300"
-                  />
-                  <div className="text-base text-[#000000] pt-7">
-                    Correo electrónico
-                  </div>
-                  <TextInput
-                    placeholder="Correo electrónico"
-                    className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500 border border-gray-300 rounded-xl p-4 h-12 focus:outline-none focus:ring-0 focus:border-gray-300"
-                  />
-                  <div className="text-base text-[#000000] pt-7">Mensaje</div>
-                  <Textarea
-                    placeholder="Start typing here..."
-                    className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500 border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-0 focus:border-gray-300"
-                  />
-                  <div className="text-base text-[#000000] pt-6">
-                    Política de privacidad*
-                  </div>
-                  <div className="pt-2">
-                    <label className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        className="custom-checkbox"
-                        checked={isChecked}
-                        onChange={handleCheckboxChange}
+            {contact.sections.map((section: any, index) => {
+              if (section._type === "contactHero") {
+                return (
+                  <>
+                    <div className=" flex items-center pt-4 pb-4 px-7 ">
+                      <Image
+                        width={70}
+                        height={73}
+                        style={{ objectFit: "contain" }}
+                        src={urlForImage(section.logo) || ""}
+                        alt="logo"
                       />
-                      <span className="text-base text-[#666666] pl-4">
-                        Acepto los términos y condiciones y la política de
-                        privacidad (más información en la parte inferior)
-                      </span>
-                    </label>
-                  </div>
-                  <div className="pt-5">
-                    <button className="bg-black w-20 h-10 rounded-xl text-white text-base">
-                      Enviar
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="col-span-1 h-full">
-                <img
-                  src={"/Captura.png"} // Use the local image path
-                  alt="images gallery"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            </div>
+                      <h1 className=" md:text-6xl md:ml-10 ml-4 text-[32px]">
+                        {section.heading}
+                      </h1>
+                    </div>
+                    <ContactForm rightImg={section.rightImage} />
 
-            {/* <VisitingSection /> */}
-            {/* Footer  */}
-            <Footer />
+                    {/* <VisitingSection /> */}
+                    {home?.sections.map((section) => {
+                      return getSection(section);
+                    })}
+                    <Footer />
+                  </>
+                );
+              }
+            })}
           </div>
         </div>
 
