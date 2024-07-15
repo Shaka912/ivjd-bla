@@ -76,7 +76,7 @@ function HomeResearchCentre({ data }: Props) {
               alt="left"
               width={300}
               height={380}
-              className="w-48 h-[200px] md:h-full md:w-full"
+              className="w-48 h-[200px] md:h-[60%] md:w-[90%]"
             />
           </div>
           <div id="image" className=" flex    " ref={image2Ref}>

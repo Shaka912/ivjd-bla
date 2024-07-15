@@ -51,13 +51,13 @@ const MovingImg = ({
         <FramerImage
           style={{ x: x, y: y, borderRadius: "10px" }}
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1, transition: { duration: 2 } }}
+          animate={{ opacity: 1, transition: { duration: 0.5 } }}
           ref={imgRef}
           src={img}
           alt={title}
           width={100}
           height={100}
-          className="w-28 h-auto hidden rounded-lg md:!hidden"
+          className="w-28 h-auto hidden  md:!hidden"
         />
 
         <h2 className={"capitalize text-base  hover:underline dark:text-light"}>
@@ -87,8 +87,8 @@ const Article = ({
       whileInView={{
         y: 0,
         transition: {
-          duration: 1,
-          ease: "easeInOut",
+          duration: 0.6,
+          ease: "easeOut",
         },
       }}
       viewport={{ once: true }}

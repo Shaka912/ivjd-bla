@@ -60,7 +60,7 @@ const ProjectDetail = async ({ params }: Props) => {
         {/* <h1 className="text-7xl  fixed bottom-52 z-20">{collection.title}</h1> */}
       </div>
       {/* Content */}
-      <h1 className="text-7xl  absolute bottom-56 md:bottom-36 left-5">
+      <h1 className="text-7xl  absolute bottom-56 md:bottom-56 left-5">
         {collection.title}
       </h1>
       <div
