@@ -11,7 +11,7 @@ export default async function Page() {
   const contact = await getPage(`contact-es`);
   const home = await getPage(`home-es`);
   const footer = await getHeaderFooter("es");
-  console.log(footer);
+
   function getSection(section: any) {
     if (section._type === "Home Visit") {
       return (

@@ -2,13 +2,18 @@ import HomeHero from "@/components/LandingPage/HomeHero";
 import VisitingSection from "@/components/LandingPage/VisitingSection";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
-import { getPage } from "@/sanity/api/sanity.queries";
+import { getHeaderFooter, getPage } from "@/sanity/api/sanity.queries";
 import HomeCollections from "@/components/LandingPage/HomeCollection";
 import HomeResearchCentre from "@/components/LandingPage/HomeresearchCentre";
-
-export default async function Home() {
+import { Params } from "./layout";
+interface Props {
+  params: Params;
+}
+export default async function Home({ params: { lang } }: Props) {
   const home = await getPage(`home-es`);
+  const footer = await getHeaderFooter("es");
 
+  console.log("Language:", lang);
   function getSection(section: any) {
     if (section._type === "homeHero") {
       return (
@@ -36,7 +41,7 @@ export default async function Home() {
             {home?.sections.map((section) => {
               return getSection(section);
             })}
-            <Footer />
+            <Footer data={footer} />
           </div>
         </div>
 
