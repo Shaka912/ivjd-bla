@@ -103,8 +103,8 @@ const objects = [
   homebrands,
   homeVisit,
   // homeFollow,
-  // navLink,
-  // subLink,
+  navLink,
+  subLink,
 ];
 
 import { portableTextType } from "./portableText/portableTextType";
@@ -162,6 +162,7 @@ const singletons = [settingsType, headerFooterType];
 
 export const schemaTypes = [
   // ...annotations,
+  headerFooterType,
   ...objects,
   // ...singletons,
   // ...blocks,

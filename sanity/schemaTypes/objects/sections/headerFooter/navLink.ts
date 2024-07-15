@@ -17,18 +17,6 @@ export const navLink = defineType({
       title: "Link",
       type: "link",
     }),
-    defineField({
-      name: "sublinks",
-      type: "array",
-      title: "Sub Links",
-      of: [
-        defineArrayMember({
-          title: "Sub Link",
-          name: "subLink",
-          type: "subLink",
-        }),
-      ],
-    }),
   ],
   icon: DocumentTextIcon,
   preview: {

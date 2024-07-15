@@ -77,3 +77,20 @@ export interface Collection {
   featuredImage1: HomeHeroCard;
   collection2R: HomeHeroCard[];
 }
+
+export interface HeaderFooter {
+  navLinks: {
+    title: string;
+
+    link: SanityLink;
+    sublinks: {
+      image: ImageAsset;
+      title: string;
+      link: SanityLink;
+    }[];
+  }[];
+  footerLinks: {
+    title: string;
+    link: SanityLink;
+  }[];
+}

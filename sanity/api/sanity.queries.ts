@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { client } from "../lib/client";
-import { Collection, Page } from "./type";
+import { Collection, HeaderFooter, Page } from "./type";
 
 export async function getPage(slug: string): Promise<Page> {
   return await client.fetch(
@@ -73,5 +73,21 @@ export async function getSingleCollection(slug: string): Promise<Collection> {
     }
     `,
     { slug }
+  );
+}
+
+export async function getHeaderFooter(lang: string): Promise<HeaderFooter> {
+  return await client.fetch(
+    groq`
+    *[_type == "header-footer" ][0] {
+  ...,
+    link {
+    ...,
+    internalLink->{_type,slug,title}
+      
+  },
+}
+    `,
+    { lang }
   );
 }

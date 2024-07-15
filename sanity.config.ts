@@ -15,6 +15,7 @@ import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 import { structure } from "./sanity/structure";
 import { colorInput } from "@sanity/color-input";
+import { linkField } from "sanity-plugin-link-field";
 export default defineConfig({
   basePath: "/studio",
   projectId,
@@ -30,6 +31,9 @@ export default defineConfig({
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    linkField({
+      linkableSchemaTypes: ["header-footer"],
+    }),
   ],
   schema: {
     types: schemaTypes,

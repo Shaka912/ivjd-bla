@@ -4,12 +4,14 @@ import Image from "next/image";
 
 import VisitingSection from "@/components/LandingPage/VisitingSection";
 import ContactForm from "@/components/ContactPage/ContactForm";
-import { getPage } from "@/sanity/api/sanity.queries";
+import { getHeaderFooter, getPage } from "@/sanity/api/sanity.queries";
 import { urlForImage } from "@/sanity/lib/image";
 
 export default async function Page() {
   const contact = await getPage(`contact-es`);
   const home = await getPage(`home-es`);
+  const footer = await getHeaderFooter("es");
+  console.log(footer);
   function getSection(section: any) {
     if (section._type === "Home Visit") {
       return (
@@ -18,7 +20,6 @@ export default async function Page() {
         </>
       );
     }
-
     return null;
   }
   return (
@@ -50,7 +51,7 @@ export default async function Page() {
                     {home?.sections.map((section) => {
                       return getSection(section);
                     })}
-                    <Footer />
+                    <Footer data={footer} />
                   </>
                 );
               }

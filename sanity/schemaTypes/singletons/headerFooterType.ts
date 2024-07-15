@@ -2,7 +2,7 @@ import { HomeIcon } from "@sanity/icons";
 import { defineArrayMember, defineField } from "sanity";
 import { GROUPS } from "../../constants";
 
-const TITLE = "Header Footer";
+const TITLE = "Footer";
 
 export const headerFooterType = defineField({
   name: "header-footer",
@@ -18,6 +18,56 @@ export const headerFooterType = defineField({
       hidden: true,
     }),
     defineField({
+      name: "header",
+      title: "Header",
+      type: "object",
+      fields: [
+        defineField({
+          name: "logo",
+          type: "image",
+          options: { hotspot: true },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: "title",
+          title: "Title",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
+    defineField({
+      name: "contact",
+      title: "Contact",
+      type: "object",
+      fields: [
+        defineField({
+          name: "title",
+          title: "Title",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: "phone",
+          title: "Phone",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: "email",
+          title: "Email",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: "description",
+          title: "Description",
+          type: "text",
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
+    defineField({
       name: "navLinks",
       type: "array",
       title: "Nav Links",
@@ -29,13 +79,13 @@ export const headerFooterType = defineField({
       ],
     }),
     defineField({
-      name: "footerLinks",
+      name: "legalLinks",
       type: "array",
-      title: "Footer Links",
+      title: "Legal Links",
       of: [
         defineArrayMember({
-          name: "subLink",
-          type: "subLink",
+          name: "navLink",
+          type: "navLink",
         }),
       ],
     }),
