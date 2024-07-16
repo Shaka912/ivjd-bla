@@ -22,8 +22,8 @@ function VisitingSection({ data }: Props) {
     watchSlides: true,
     watchResize: true,
   };
+  console.log(data);
   const pathName = usePathname();
-  console.log(pathName);
   const kk = pathName === "/contacto";
   return (
     <>
@@ -34,10 +34,13 @@ function VisitingSection({ data }: Props) {
         <div className="md:col-span-5 col-span-12 flex flex-col justify-end">
           <h2 className="text-2xl">{data.heading}</h2>
           <h5 className="mt-5 text-lg">{data.subHeading}</h5>
-          {Object.entries(data.Hours).map(([day, hours]) => (
-            <div className="flex justify-between text-[#646464] mt-3" key={day}>
-              <p>{capitalizeFirstLetter(day)}</p>
-              <p>{hours}</p>
+          {data.hours.map((dayHour, index) => (
+            <div
+              className="flex justify-between text-[#646464] mt-3"
+              key={index}
+            >
+              <p>{capitalizeFirstLetter(dayHour.day)}</p>
+              <p>{dayHour.hour}</p>
             </div>
           ))}
         </div>

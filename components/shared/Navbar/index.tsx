@@ -17,15 +17,14 @@ import LocaleLink from "@/components/ui/locale-link";
 
 interface props {
   lang: Locale;
+  data: any;
 }
-function Navbar({ lang }: props) {
+function Navbar({ lang, data }: props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [menuType, setMenuType] = useState<string>();
   const query = useSearchParams();
   const [blend, setBlend] = useState<boolean>(true);
   const pathname = usePathname();
   const [activeLink, setActiveLink] = useState("/");
-  const isHome = pathname === "/" || pathname === "/es";
   const redirectedPathName = (locale: string) => {
     const queryParams = new URLSearchParams(query).toString();
 
@@ -64,8 +63,6 @@ function Navbar({ lang }: props) {
     // Append query parameters if any
     return queryParams ? `${newPathName}?${queryParams}` : newPathName;
   };
-
-  const [subMenuIdx, setSubMenuIdx] = useState<any>();
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [hoverKey, setHoverKey] = useState<number>(0);
   const disableNavbar = false;
@@ -100,16 +97,13 @@ function Navbar({ lang }: props) {
       >
         {/* left text */}
         <div className="flex gap-4 w-1/2 md:w-[400px] ">
-          <h5 className=" text-sm md:text-md">
-            El Instituto Valencia de Don Juan fue fundado en 1916 por don
-            Guillermo de Osma y Scull y su esposa doña Adelaida Crooke y Guzmán
-          </h5>
+          <h5 className=" text-sm md:text-md">{data.header.title}</h5>
         </div>
 
         {/* Right Container */}
 
         <div className="p-5 hidden items-center md:gap-24 md:flex z-10  ">
-          {navbarList.map((item, index) =>
+          {data.navLinks.map((item: any, index: number) =>
             item.dropDown ? (
               <div key={index}>
                 <DropdownMenu>

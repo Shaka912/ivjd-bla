@@ -1,44 +1,34 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { DocumentTextIcon } from "@sanity/icons";
+
 export const homeVisit = defineType({
   name: "homeVisit",
   title: "Home Visit",
   type: "object",
   fields: [
     defineField({
-      name: "Hours",
+      name: "hours",
       title: "Hours",
-      type: "object",
-      fields: [
-        defineField({
-          title: "Monday",
-          name: "monday",
-          type: "string",
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: "tuesday",
-          title: "Tuesday",
-          type: "string",
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: "wednesday",
-          title: "Wednesday",
-          type: "string",
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: "thursday",
-          title: "Thursday",
-          type: "string",
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: "friday",
-          title: "Friday",
-          type: "string",
-          validation: (Rule) => Rule.required(),
+      type: "array",
+      of: [
+        defineArrayMember({
+          name: "dayHour",
+          title: "Day and Hour",
+          type: "object",
+          fields: [
+            defineField({
+              name: "day",
+              title: "Day",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "hour",
+              title: "Hour",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
         }),
       ],
     }),

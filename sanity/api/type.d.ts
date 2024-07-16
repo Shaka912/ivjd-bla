@@ -48,13 +48,7 @@ export interface HomeCollectionProp {
 export interface HomeVistingProp {
   _type: string;
   title: string;
-  Hours: {
-    monday: string;
-    tuesday: string;
-    wednesday: string;
-    thursday: string;
-    friday: string;
-  };
+  hours: any[];
   images: Image[];
   heading: string;
   subHeading: string;

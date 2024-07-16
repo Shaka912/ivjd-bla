@@ -2,7 +2,11 @@ import HomeHero from "@/components/LandingPage/HomeHero";
 import VisitingSection from "@/components/LandingPage/VisitingSection";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
-import { getHeaderFooter, getPage } from "@/sanity/api/sanity.queries";
+import {
+  getHeaderFooter,
+  getNavbar,
+  getPage,
+} from "@/sanity/api/sanity.queries";
 import HomeCollections from "@/components/LandingPage/HomeCollection";
 import HomeResearchCentre from "@/components/LandingPage/HomeresearchCentre";
 import { Params } from "./layout";
@@ -12,7 +16,7 @@ export interface Props {
 export default async function Home({ params: { lang } }: Props) {
   const home = await getPage(`home-${lang}`);
   const footer = await getHeaderFooter(`${lang}`);
-
+  const navbar = await getNavbar(lang);
   console.log("Language:", lang);
   function getSection(section: any) {
     if (section._type === "homeHero") {
@@ -33,7 +37,7 @@ export default async function Home({ params: { lang } }: Props) {
   }
   return (
     <>
-      <Navbar lang={lang} />
+      <Navbar lang={lang} data={navbar} />
       <main className="bg-white max-h-screen  h-screen bg-blend-darken ">
         {/* Logo */}
         <div className="relative ">

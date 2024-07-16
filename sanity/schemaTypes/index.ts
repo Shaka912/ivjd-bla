@@ -157,12 +157,14 @@ import {
 } from "./objects/sections/HomeCollections";
 import { homeVisit } from "./objects/sections/homeVisit";
 import Collections from "./documents/Collections";
+import { navbarType } from "./singletons/navbarType";
 
 const singletons = [settingsType, headerFooterType];
 
 export const schemaTypes = [
   // ...annotations,
   headerFooterType,
+  navbarType,
   ...objects,
   // ...singletons,
   // ...blocks,

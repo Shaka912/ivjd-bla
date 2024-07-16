@@ -4,15 +4,19 @@ import Image from "next/image";
 
 import VisitingSection from "@/components/LandingPage/VisitingSection";
 import ContactForm from "@/components/ContactPage/ContactForm";
-import { getHeaderFooter, getPage } from "@/sanity/api/sanity.queries";
+import {
+  getHeaderFooter,
+  getNavbar,
+  getPage,
+} from "@/sanity/api/sanity.queries";
 import { urlForImage } from "@/sanity/lib/image";
 import { Props } from "../page";
 
 export default async function Page({ params: { lang } }: Props) {
-  const contact = await getPage(`contact-es`);
-  const home = await getPage(`home-es`);
-  const footer = await getHeaderFooter("es");
-
+  const contact = await getPage(`contact-${lang}`);
+  const home = await getPage(`home-${lang}`);
+  const footer = await getHeaderFooter(lang);
+  const navbar = await getNavbar(lang);
   function getSection(section: any) {
     if (section._type === "Home Visit") {
       return (
@@ -25,7 +29,7 @@ export default async function Page({ params: { lang } }: Props) {
   }
   return (
     <>
-      <Navbar lang={lang} />
+      <Navbar lang={lang} data={navbar} />
       <main className="bg-white max-h-screen max-w-screen h-screen bg-blend-darken relative">
         {/* Logo */}
         <div className="relative ">
@@ -48,7 +52,6 @@ export default async function Page({ params: { lang } }: Props) {
                     </div>
                     <ContactForm rightImg={section.rightImage} />
 
-                    {/* <VisitingSection /> */}
                     {home?.sections.map((section) => {
                       return getSection(section);
                     })}
