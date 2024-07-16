@@ -53,3 +53,4 @@ export const homeCarousel = [
     // live_text: 'Live Text 3', // Uncomment if needed
   },
 ];
+export const REVALIDATE_TIME = 60;
