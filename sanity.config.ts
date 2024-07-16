@@ -38,11 +38,11 @@ export default defineConfig({
         { id: "en", title: "English" },
         { id: "ar", title: "Arabic" },
       ],
-      schemaTypes: ["page", "collections", "header-footer"],
+      schemaTypes: ["page", "collections", "header-footer", "navbar"],
       languageField: `language`,
     }),
     linkField({
-      linkableSchemaTypes: ["header-footer"],
+      linkableSchemaTypes: ["header-footer", "navbar"],
     }),
   ],
   schema: {

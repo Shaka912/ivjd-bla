@@ -79,7 +79,22 @@ export async function getSingleCollection(slug: string): Promise<Collection> {
 export async function getHeaderFooter(lang: string): Promise<HeaderFooter> {
   return await client.fetch(
     groq`
-    *[_type == "header-footer" ][0] {
+    *[_type == "header-footer" && language == $lang ][0] {
+  ...,
+    link {
+    ...,
+    internalLink->{_type,slug,title}
+      
+  },
+}
+    `,
+    { lang }
+  );
+}
+export async function getNavbar(lang: string): Promise<HeaderFooter> {
+  return await client.fetch(
+    groq`
+    *[_type == "navbar" && language == $lang][0] {
   ...,
     link {
     ...,
