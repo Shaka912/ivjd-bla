@@ -11,16 +11,18 @@ import { getSingleCollection } from "@/sanity/api/sanity.queries";
 import { urlForImage } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import { protableTextSettingsComponents } from "@/app/settings/portableTextSettings";
+import { Locale } from "@/i18n";
 
 interface Props {
   params: {
     slug: string;
+    lang: Locale;
   };
 }
 
 const ProjectDetail = async ({ params }: Props) => {
   const collection = await getSingleCollection(params.slug);
-
+  const lang = params.lang;
   // Fake data for demonstration. Replace this with your actual data fetching logic.
   const project = {
     backgroundColor: "#2D4138",
@@ -72,7 +74,7 @@ const ProjectDetail = async ({ params }: Props) => {
         {/* insitiute description  */}
         <div className="py-20 grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="text-xl text-[#B7B7B7] px-7 md:pr-48">
-            INFORMACIÓN
+            {lang === "es" ? "INFORMACIÓN" : "IMFORMATION"}
           </div>
           <div className="px-7 md:pl-40">
             <div

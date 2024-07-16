@@ -6,8 +6,9 @@ import VisitingSection from "@/components/LandingPage/VisitingSection";
 import ContactForm from "@/components/ContactPage/ContactForm";
 import { getHeaderFooter, getPage } from "@/sanity/api/sanity.queries";
 import { urlForImage } from "@/sanity/lib/image";
+import { Props } from "../page";
 
-export default async function Page() {
+export default async function Page({ params: { lang } }: Props) {
   const contact = await getPage(`contact-es`);
   const home = await getPage(`home-es`);
   const footer = await getHeaderFooter("es");
@@ -24,7 +25,7 @@ export default async function Page() {
   }
   return (
     <>
-      <Navbar />
+      <Navbar lang={lang} />
       <main className="bg-white max-h-screen max-w-screen h-screen bg-blend-darken relative">
         {/* Logo */}
         <div className="relative ">

@@ -19,6 +19,10 @@ export const navbarList = [
     title: "Contacto",
     link: "/contacto",
   },
+  {
+    link: "",
+    dropDown: true,
+  },
 ];
 
 export const homeCarousel = [
