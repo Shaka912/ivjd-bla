@@ -1,4 +1,4 @@
-import { IPosition } from "@/interfaces/gloabal.type";
+import { IPosition } from "@/gloabal.type";
 import { useState, useEffect } from "react";
 
 const cursorSize = 8;
