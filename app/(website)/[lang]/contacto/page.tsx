@@ -11,6 +11,7 @@ import {
 } from "@/sanity/api/sanity.queries";
 import { urlForImage } from "@/sanity/lib/image";
 import { Props } from "../page";
+import Link from "next/link";
 
 export default async function Page({ params: { lang } }: Props) {
   const contact = await getPage(`contact-${lang}`);
@@ -39,13 +40,15 @@ export default async function Page({ params: { lang } }: Props) {
                 return (
                   <>
                     <div className=" flex items-center pt-4 pb-4 px-7 ">
-                      <Image
-                        width={70}
-                        height={73}
-                        style={{ objectFit: "contain" }}
-                        src={urlForImage(section.logo) || ""}
-                        alt="logo"
-                      />
+                      <Link href={"/"}>
+                        <Image
+                          width={70}
+                          height={73}
+                          style={{ objectFit: "contain" }}
+                          src={urlForImage(section.logo) || ""}
+                          alt="logo"
+                        />
+                      </Link>
                       <h1 className=" md:text-6xl md:ml-10 ml-4 text-[32px]">
                         {section.heading}
                       </h1>
