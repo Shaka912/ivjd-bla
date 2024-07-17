@@ -119,12 +119,11 @@ const Article = ({
 
 function CollectionItemss({
   title,
-  link,
+
   subTitle,
   lang,
 }: {
   title: any;
-  link: any;
   subTitle: any;
   lang: string;
 }) {
@@ -190,13 +189,12 @@ function HomeCollections({ data, lang }: Props) {
                 onMouseLeave={onMouseLeaveRow}
                 lang={"es"}
                 key={`locale-link-${index}`}
-                href={"/" + item.slug.current || ""}
+                href={"/collections/" + item.slug.current || ""}
               >
                 <CollectionItemss
                   key={index}
                   title={item.title || ""}
                   subTitle={item.shortDescription || ""}
-                  link={item.slug.current || ""}
                   lang={lang}
                 />
               </LocaleLink>
