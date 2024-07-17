@@ -93,18 +93,23 @@ const ProjectDetail = async ({ params }: Props) => {
         <div className="px-8 md:px-30 mt-30 md:mt-4 flex flex-col md:gap-11">
           {/* First Images Row */}
 
-          <div className="grid md:grid-cols-3 grid-cols-1 md:gap-x-24 md:mb-20 mb-5">
+          <div className="grid md:grid-cols-3 grid-cols-1 items-baseline md:gap-x-24 md:mb-20 mb-5">
             {collection.collection1R.length > 0 &&
               collection.collection1R.map((item, index) => (
                 <div
                   key={index}
-                  className="w-full h-full col-span-1 flex flex-col justify-end mb-6 md:mb-0"
+                  className="h-full col-span-1 flex flex-col justify-start items-start mb-6 md:mb-0"
                 >
-                  <div className="relative w-full h-full overflow-hidden flex items-end">
+                  <div className="relative w-[400px] h-[550px] overflow-hidden">
                     <img
                       src={urlForImage(item.image) || ""}
                       alt="Project Image"
-                      className="object-contain w-full h-full"
+                      className="object-contain"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectPosition: "left",
+                      }}
                     />
                   </div>
                   <div className="pt-3 mb-11">
