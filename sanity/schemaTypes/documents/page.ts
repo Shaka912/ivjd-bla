@@ -49,7 +49,7 @@ export const pageType = defineField({
         }),
         defineArrayMember({
           name: "homeCollections",
-          type: "homeCollections",
+          type: "collectionSection",
         }),
         defineArrayMember({
           name: "Home Visit",

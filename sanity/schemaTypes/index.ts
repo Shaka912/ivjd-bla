@@ -93,6 +93,7 @@ const objects = [
   designSystemColors,
   contactHero,
   homeHero,
+  collectionSection,
   homeHeroCard,
   contactSection,
   homeResearchCentre,
@@ -142,7 +143,7 @@ import { aboutHero } from "./objects/sections/aboutHero";
 import { homeHero } from "./objects/sections/homeHero/homeHero";
 import { homeHeroCard } from "./objects/sections/homeHero/homeHeroCard";
 import { contactSection } from "./objects/sections/contactSection";
-import { projectSection } from "./objects/sections/projectSection";
+import { collectionSection } from "./objects/sections/collectionSection";
 import { shopSection } from "./objects/sections/shopSection";
 import { homebrands } from "./objects/sections/homeHero/homebrands";
 import { homeFollow } from "./objects/sections/homeHero/homeFollow";

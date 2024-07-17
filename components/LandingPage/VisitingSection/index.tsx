@@ -22,7 +22,7 @@ function VisitingSection({ data }: Props) {
     watchSlides: true,
     watchResize: true,
   };
-  console.log(data);
+
   const pathName = usePathname();
   const kk = pathName === "/contacto";
   return (

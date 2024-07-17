@@ -1,29 +1,29 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { DocumentTextIcon } from "@sanity/icons";
-export const projectSection = defineType({
-  name: "projectSection",
-  title: "Projects Section",
+export const collectionSection = defineType({
+  name: "collectionSection",
+  title: "collection Section",
   type: "object",
   fields: [
     defineField({
-      name: "projects",
+      name: "collections",
       type: "string",
       hidden: true,
-      initialValue: "projects",
+      initialValue: "collections",
     }),
     defineField({
-      name: "projectsArray",
-      title: "Projects",
+      name: "collectionsArray",
+      title: "Collections",
       type: "array",
       validation: (Rule) => Rule.required(),
       of: [
         defineArrayMember({
-          name: "project",
-          title: "projects",
+          name: "collection",
+          title: "collections",
           type: "reference",
           to: [
             {
-              type: "projects",
+              type: "collections",
             },
           ],
         }),
@@ -35,7 +35,7 @@ export const projectSection = defineType({
     select: {},
     prepare({}) {
       return {
-        title: "Projects Section",
+        title: "Collection Section",
         media: DocumentTextIcon,
       };
     },

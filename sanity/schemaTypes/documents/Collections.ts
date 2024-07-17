@@ -28,7 +28,12 @@ export default defineType({
       type: "image",
       validation: (Rule) => Rule.required(),
     }),
-
+    defineField({
+      name: "shortDescription",
+      title: "Short Description",
+      type: "text",
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: "description",
       title: "Description",

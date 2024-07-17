@@ -85,6 +85,7 @@ function Navbar({ lang, data }: props) {
   const onMouseLeaveRow = () => {
     setHoveredIdx(null);
   };
+
   return (
     <>
       <div
@@ -120,8 +121,6 @@ function Navbar({ lang, data }: props) {
                     </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
-                    {/* <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                    <DropdownMenuSeparator /> */}
                     {i18nConfig.locales.map((locale, index1) => {
                       return (
                         <Link key={locale} href={redirectedPathName(locale)}>
@@ -140,7 +139,7 @@ function Navbar({ lang, data }: props) {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-            ) : item.title === "Contacto" ? (
+            ) : item.link === "/contacto" ? (
               <LocaleLink
                 key={index}
                 lang={lang}
@@ -191,8 +190,8 @@ function Navbar({ lang, data }: props) {
         {/* mobile menu */}
         <div
           className={[
-            "pt-[168px] flex  flex-col items-center gap-16 absolute top-0 left-0 -z-10 right-0 h-screen bg-primary -translate-y-[100%] transition-transform ease-in-out duration-300",
-            isOpen && "translate-y-0 duration-500 ",
+            "pt-[168px] md:pt-0  flex-col flex items-center gap-16 absolute top-0 left-0 -z-10 right-0 h-screen bg-primary -translate-y-[100%] transition-transform ease-in-out duration-300",
+            isOpen && "translate-y-0 duration-500  ",
           ].join(" ")}
         >
           {navbarList.map((item, index) => {

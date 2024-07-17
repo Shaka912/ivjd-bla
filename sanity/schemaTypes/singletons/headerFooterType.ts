@@ -69,23 +69,49 @@ export const headerFooterType = defineField({
     }),
     defineField({
       name: "navLinks",
-      type: "array",
+      type: "object",
       title: "Nav Links",
-      of: [
-        defineArrayMember({
-          name: "navLink",
-          type: "navLink",
+      fields: [
+        defineField({
+          name: "title",
+          title: "Nav Links Title",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: "links",
+          type: "array",
+          title: "Links",
+          of: [
+            defineArrayMember({
+              name: "navLink",
+              type: "navLink",
+            }),
+          ],
         }),
       ],
     }),
     defineField({
       name: "legalLinks",
-      type: "array",
+      type: "object",
       title: "Legal Links",
-      of: [
-        defineArrayMember({
-          name: "navLink",
-          type: "navLink",
+      fields: [
+        defineField({
+          name: "title",
+          title: "Legal Links Title",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: "links",
+          type: "array",
+          title: "Links",
+          of: [
+            defineArrayMember({
+              name: "navLink",
+              type: "navLink",
+            }),
+          ],
         }),
       ],
     }),

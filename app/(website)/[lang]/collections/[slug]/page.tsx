@@ -48,7 +48,7 @@ const ProjectDetail = async ({ params }: Props) => {
         backgroundColor: backgroundColor,
         color: textColor,
       }}
-      className={`pb-[103px] w-screen min-w-full`}
+      className={`pb-[103px]  min-w-full`}
     >
       <div className="fixed inset-0  -z-10 w-screen h-[80vh]">
         <div className="relative w-full h-full">
@@ -93,54 +93,57 @@ const ProjectDetail = async ({ params }: Props) => {
         <div className="px-8 md:px-30 mt-30 md:mt-4 flex flex-col md:gap-11">
           {/* First Images Row */}
 
-          <div className="grid md:grid-cols-3 grid-cols-1  md:gap-x-24 md:mb-20 mb-5">
+          <div className="grid md:grid-cols-3 grid-cols-1 items-baseline md:gap-x-24 md:mb-20 mb-5">
             {collection.collection1R.length > 0 &&
-              collection.collection1R.map((item, index, arr) => (
-                <>
-                  <div
-                    key={index}
-                    className=" w-fit h-full col-span-1 relative md:block flex flex-col justify-center mb-6 md:mb-0"
-                  >
+              collection.collection1R.map((item, index) => (
+                <div
+                  key={index}
+                  className="h-full col-span-1 flex flex-col justify-start items-start mb-6 md:mb-0"
+                >
+                  <div className="relative w-[400px] h-[550px] overflow-hidden">
                     <img
                       src={urlForImage(item.image) || ""}
                       alt="Project Image"
-                      // layout="fill"
-                      style={{ objectFit: "contain", height: "100%" }}
+                      className="object-contain"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectPosition: "left",
+                      }}
                     />
-                    <div className="pt-3 mb-11">
-                      {item.description.split("\n").map((line, lineIndex) => (
-                        <p key={lineIndex} className=" leading-relaxed">
-                          {line}
-                        </p>
-                      ))}
-                    </div>
                   </div>
-                </>
+                  <div className="pt-3 mb-11">
+                    {item.description.split("\n").map((line, lineIndex) => (
+                      <p key={lineIndex} className="leading-relaxed">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </div>
               ))}
           </div>
           {/* Second Image Column */}
 
-          <div className="grid grid-cols-1 ">
-            <div className=" aspect-[1/2] md:aspect-square  md:w-[96vw] h-[50vw] w-full">
-              <img
-                src={urlForImage(collection.featuredImage1.image) || ""} // Use the local image path
-                alt="images gallery"
-                style={{
-                  objectFit: "contain",
-                  width: "96vw",
-                }}
-              />
+          <div className="grid grid-cols-1">
+            <div className="flex flex-col items-center">
+              <div className="relative w-full md:w-[96vw] h-[50vw] md:h-auto">
+                <img
+                  src={urlForImage(collection.featuredImage1.image) || ""}
+                  alt="images gallery"
+                  className="object-contain w-full h-full"
+                />
+              </div>
+              {/* Image description */}
+              <div className="mt-4 md:mt-10 xl:mt-16 w-full ">
+                {collection.featuredImage1.description
+                  .split("\n")
+                  .map((line, lineIndex) => (
+                    <p key={lineIndex} className="leading-relaxed">
+                      {line}
+                    </p>
+                  ))}
+              </div>
             </div>
-          </div>
-          {/* iamge description  */}
-          <div className="mt-4 md:mt-12 xl:mt-20">
-            {collection.featuredImage1.description
-              .split("\n")
-              .map((line, lineIndex) => (
-                <p key={lineIndex} className=" leading-relaxed">
-                  {line}
-                </p>
-              ))}
           </div>
 
           <div className="grid md:grid-cols-2 grid-cols-1 gap-4 pt-10">
@@ -151,7 +154,7 @@ const ProjectDetail = async ({ params }: Props) => {
                     <img
                       src={urlForImage(item.image) || ""}
                       alt="Jarra"
-                      className="object-cover w-full h-full"
+                      className="object-cover md:w-96 h-full"
                     />
                   </div>
                   <div className=" mt-4 ">

@@ -53,7 +53,7 @@ export default async function Page({ params: { lang } }: Props) {
                         {section.heading}
                       </h1>
                     </div>
-                    <ContactForm rightImg={section.rightImage} />
+                    <ContactForm rightImg={section.rightImage} lang={lang} />
 
                     {home?.sections.map((section) => {
                       return getSection(section);

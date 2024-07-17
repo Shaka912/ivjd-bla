@@ -12,7 +12,7 @@ import { urlForImage } from "@/sanity/lib/image";
 
 export type contactusFormData = z.infer<typeof contactusSchema>;
 
-const ContactForm = ({ rightImg }: any) => {
+const ContactForm = ({ rightImg, lang }: any) => {
   const methods = useForm<contactusFormData>({
     resolver: zodResolver(contactusSchema),
   });
@@ -53,25 +53,29 @@ const ContactForm = ({ rightImg }: any) => {
         <div className="grid md:grid-cols-2 grid-cols-1 gap-x-7 pt-4 px-7">
           <div className="col-span-1">
             <div className="">
-              <div className="text-base text-[#000000]">Nombre</div>
+              <div className="text-base text-[#000000]">
+                {lang === "es" ? "Nombre" : "Name"}
+              </div>
               <TextInput
-                placeholder="Nombre"
+                placeholder={lang === "es" ? "Nombre" : "Name"}
                 className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500 border border-gray-300 rounded-xl p-4 h-12 focus:outline-none focus:ring-0 focus:border-gray-300"
               />
               <div className="text-base text-[#000000] pt-7">
-                Correo electrónico
+                {lang === "es" ? "Correo electrónico*" : "Email"}
               </div>
               <TextInput
-                placeholder="Correo electrónico"
+                placeholder={lang === "es" ? "Correo electrónico*" : "Email"}
                 className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500 border border-gray-300 rounded-xl p-4 h-12 focus:outline-none focus:ring-0 focus:border-gray-300"
               />
-              <div className="text-base text-[#000000] pt-7">Mensaje</div>
+              <div className="text-base text-[#000000] pt-7">
+                {lang === "es" ? "Mensaje" : "Message"}
+              </div>
               <Textarea
                 placeholder="Start typing here..."
                 className="mt-1 w-full shadow-sm sm:text-base font-light text-gray-500 border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-0 focus:border-gray-300"
               />
               <div className="text-base text-[#000000] pt-6">
-                Política de privacidad*
+                {lang === "es" ? "Política de privacidad*" : "Privacy policy"}
               </div>
               <div className="pt-2">
                 <label className="flex items-center w-full h-full">

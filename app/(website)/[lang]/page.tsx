@@ -18,6 +18,7 @@ export default async function Home({ params: { lang } }: Props) {
   const footer = await getHeaderFooter(`${lang}`);
   const navbar = await getNavbar(lang);
   console.log("Language:", lang);
+
   function getSection(section: any) {
     if (section._type === "homeHero") {
       return (
@@ -28,7 +29,7 @@ export default async function Home({ params: { lang } }: Props) {
     } else if (section._type === "homeResearchCentre") {
       return <HomeResearchCentre data={section} />;
     } else if (section._type === "homeCollections") {
-      return <HomeCollections data={section} />;
+      return <HomeCollections data={section} lang={lang} />;
     } else if (section._type === "Home Visit") {
       return <VisitingSection data={section} />;
     }

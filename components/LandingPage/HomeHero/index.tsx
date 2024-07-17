@@ -1,8 +1,10 @@
+"use client";
 import { HomeHeroProps } from "@/sanity/api/type";
 import Image from "next/image";
 import React from "react";
 import HomeCarousel from "../Carousel";
 import { urlForImage } from "@/sanity/lib/image";
+import { ReactSVG } from "react-svg";
 interface Props {
   data: HomeHeroProps;
 }
@@ -10,12 +12,18 @@ function HomeHero({ data }: Props) {
   return (
     <>
       <div className=" flex items-center p-4">
-        <Image
+        {/* <Image
           width={60}
           height={73}
           style={{ objectFit: "contain" }}
           src={urlForImage(data.header.logo) || ""}
           alt="logo"
+        /> */}
+        <ReactSVG
+          src={urlForImage(data.header.logo) || ""}
+          beforeInjection={(svg) => {
+            svg.setAttribute("style", "width: 100px; height: 100px;");
+          }}
         />
         <h1 className="text-3xl md:text-7xl md:ml-10 ml-5">
           {data.header.title || " "}
