@@ -17,9 +17,12 @@ export async function getPage(slug: string): Promise<Page> {
         Hours { ... },
         images[] { ... },
         // Include title specifically for homeCollections
-        _type == 'homeCollections' => {
+                _type == 'homeCollections' => {
           title,
-          collectionItems[] { ... }
+          "collections": collectionsArray[]->{
+           ...
+            // Add any other fields you need from the collection document
+          }
         }
       },
       "slug": slug.current

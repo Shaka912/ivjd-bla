@@ -4,17 +4,17 @@ export const i18nConfig = {
   localeNames: {
     en: {
       en: "English",
-      es: "Inglés",
+      es: "Spanish",
       ar: "Arabic",
     },
     es: {
-      en: "Spanish",
+      en: "Inglés",
       es: "Español",
       ar: "Árabe",
     },
     ar: {
-      en: "Arabic",
-      es: "Árabe",
+      en: "إنجليزي",
+      es: "إسباني",
       ar: "العربية",
     },
   },

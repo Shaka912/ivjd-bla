@@ -1,5 +1,5 @@
 import { ListItemBuilder, StructureResolver } from "sanity/structure";
-
+import collectionStructure from "./collectionStructure";
 import designSystemColors from "./designSystemColorStructure";
 /**
  * Structure overrides
@@ -22,7 +22,7 @@ const hiddenDocTypes = (listItem: ListItemBuilder) => {
     return false;
   }
 
-  return !["designSystemColors"].includes(id);
+  return !["designSystemColors", "collections"].includes(id);
 };
 
 export const structure: StructureResolver = (S, context) =>
@@ -30,6 +30,8 @@ export const structure: StructureResolver = (S, context) =>
     .title("Content")
     .items([
       designSystemColors(S, context),
+      S.divider(),
+      collectionStructure(S, context),
       S.divider(),
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ]);

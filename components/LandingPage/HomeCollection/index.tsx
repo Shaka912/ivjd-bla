@@ -8,10 +8,12 @@ import { urlForImage } from "@/sanity/lib/image";
 import useMousePosition from "@/hooks/useMousePosition";
 import ListViewHoverImages from "@/components/animation/ListViewHoverImages";
 import LocaleLink from "@/components/ui/locale-link";
+
 const article2 = "/homeImg1.png";
 const FramerImage = motion(Image);
 interface Props {
   data: HomeCollectionProp;
+  lang: string;
 }
 
 const MovingImg = ({
@@ -117,14 +119,14 @@ const Article = ({
 
 function CollectionItemss({
   title,
-  date,
   link,
   subTitle,
+  lang,
 }: {
   title: any;
-  date: any;
   link: any;
   subTitle: any;
+  lang: string;
 }) {
   return (
     <>
@@ -135,21 +137,21 @@ function CollectionItemss({
             "capitalize text-base  hover:underline dark:text-light hidden md:block"
           }
         >
+          {" "}
           {subTitle}
         </h2>
         <span className="text-base hover:underline  pl-4 dark:text-primaryDark sm:self-start sm:pl-0 xs:text-sm">
-          {date}
+          {lang === "es" ? "Ver colección" : "View Collection"}
         </span>
       </div>
     </>
   );
 }
 
-function HomeCollections({ data }: Props) {
+function HomeCollections({ data, lang }: Props) {
   const [hoveredIdx, setHoveredIdx] = React.useState<number | null>(null);
   const [hoverKey, setHoverKey] = React.useState<number>(0);
   const mousePosition = useMousePosition();
-  console.log("HoverIndex: ", hoveredIdx);
 
   const onMouseEnterRow = (idx: number) => {
     setHoveredIdx(idx);
@@ -175,37 +177,31 @@ function HomeCollections({ data }: Props) {
                 key={`hovered-img-${hoveredIdx}-${hoverKey}`}
                 mousePosition={mousePosition}
                 currentImg={{
-                  src: urlForImage(data.collectionItems[hoveredIdx].image),
+                  src: urlForImage(data.collections[hoveredIdx].featuredImage),
                   alt: "hover Image",
                 }}
               />
             )}
           </AnimatePresence>
-          {data.collectionItems.map((item, index) => (
-            // <Article
-            //   key={index}
-            //   title={item.title || ""}
-            //   img={urlForImage(item.image) || ""}
-            //   subTitle={item.subTitle}
-            //   date={item.link.title || ""}
-            //   link={item.link.link || ""}
-            // />
-            <LocaleLink
-              onMouseEnter={() => onMouseEnterRow(index)}
-              onMouseLeave={onMouseLeaveRow}
-              lang={"es"}
-              key={`locale-link-${index}`}
-              href={item.link.link || ""}
-            >
-              <CollectionItemss
-                key={index}
-                title={item.title || ""}
-                subTitle={item.subTitle}
-                date={item.link.title || ""}
-                link={item.link.link || ""}
-              />
-            </LocaleLink>
-          ))}
+          {data.collections.map((item, index) => {
+            return (
+              <LocaleLink
+                onMouseEnter={() => onMouseEnterRow(index)}
+                onMouseLeave={onMouseLeaveRow}
+                lang={"es"}
+                key={`locale-link-${index}`}
+                href={"/" + item.slug.current || ""}
+              >
+                <CollectionItemss
+                  key={index}
+                  title={item.title || ""}
+                  subTitle={item.shortDescription || ""}
+                  link={item.slug.current || ""}
+                  lang={lang}
+                />
+              </LocaleLink>
+            );
+          })}
         </ul>
       </main>
     </>

@@ -34,6 +34,7 @@ export interface HomeResearchCentreProp {
 export interface HomeCollectionProp {
   _type: string;
   title: string;
+  collections: any[];
   collectionItems: {
     image: Image;
     title: string;
