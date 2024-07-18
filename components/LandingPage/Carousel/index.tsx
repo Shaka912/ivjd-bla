@@ -15,7 +15,7 @@ function HomeCarousel({ data }: cardArrayProp) {
     <>
       <div className={" overflow-hidden w-full  relative "}>
         <ReactHomeCarousel>
-          {data.map((card, index) => {
+          {data?.map((card, index) => {
             return (
               <Card
                 key={index}

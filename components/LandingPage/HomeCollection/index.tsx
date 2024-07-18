@@ -182,7 +182,7 @@ function HomeCollections({ data, lang }: Props) {
               />
             )}
           </AnimatePresence>
-          {data.collections.map((item, index) => {
+          {data?.collections?.map((item, index) => {
             return (
               <LocaleLink
                 onMouseEnter={() => onMouseEnterRow(index)}
