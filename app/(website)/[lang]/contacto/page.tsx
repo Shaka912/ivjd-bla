@@ -35,7 +35,7 @@ export default async function Page({ params: { lang } }: Props) {
         {/* Logo */}
         <div className="relative ">
           <div className="absolute top-56  w-full">
-            {contact.sections.map((section: any, index) => {
+            {contact?.sections?.map((section: any, index) => {
               if (section._type === "contactHero") {
                 return (
                   <>
@@ -55,7 +55,7 @@ export default async function Page({ params: { lang } }: Props) {
                     </div>
                     <ContactForm rightImg={section.rightImage} lang={lang} />
 
-                    {home?.sections.map((section) => {
+                    {home?.sections?.map((section) => {
                       return getSection(section);
                     })}
                     <Footer data={footer} />

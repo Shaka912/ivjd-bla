@@ -5,8 +5,9 @@ import { i18nConfig, Locale } from "@/i18n";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
-import { Link as ScrollLink, Element } from "react-scroll";
+import { Link as ScrollLink, scroller } from "react-scroll";
 import { IoIosArrowDown } from "react-icons/io";
+import { useRouter } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,6 +25,7 @@ function Navbar({ lang, data }: props) {
   const query = useSearchParams();
   const [blend, setBlend] = useState<boolean>(true);
   const pathname = usePathname();
+  const router = useRouter();
   const [activeLink, setActiveLink] = useState("/");
   const redirectedPathName = (locale: string) => {
     const queryParams = new URLSearchParams(query).toString();
@@ -74,8 +76,27 @@ function Navbar({ lang, data }: props) {
       setTimeout(() => setBlend(true), 350);
     }
   }, [isOpen]);
-  const handleLinkClick = (link: string) => {
+  const handleLinkClick = (link: any) => {
     setActiveLink(link);
+
+    if (pathname !== "/" || pathname !== `/${lang}`) {
+      router.push(`/${lang}`);
+      setTimeout(() => {
+        scroller.scrollTo(link.replace("#", ""), {
+          duration: 500,
+          delay: 0,
+          smooth: "easeInOutQuart",
+          offset: -70,
+        });
+      }, 100); // Adjust timeout as necessary
+    } else {
+      scroller.scrollTo(link.replace("#", ""), {
+        spy: true,
+        smooth: true,
+        offset: -70,
+        duration: 500,
+      });
+    }
   };
   const onMouseEnterRow = (idx: number) => {
     setHoveredIdx(idx);
@@ -104,7 +125,7 @@ function Navbar({ lang, data }: props) {
         {/* Right Container */}
 
         <div className="p-5 hidden items-center md:gap-24 md:flex z-10  ">
-          {data.navLinks.map((item: any, index: number) =>
+          {data?.navLinks?.map((item: any, index: number) =>
             item.dropDown ? (
               <div key={index}>
                 <DropdownMenu>
@@ -159,16 +180,9 @@ function Navbar({ lang, data }: props) {
                 </Text>
               </LocaleLink>
             ) : (
-              <ScrollLink
-                to={item.link.replace("#", "")}
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
+              <div
                 key={index}
-                className={`leading-[24px] cursor-pointer ${
-                  activeLink === item.link ? "underline" : ""
-                }`}
+                className={`leading-[24px] cursor-pointer ${activeLink === item.link ? "underline" : ""}`}
                 onClick={() => handleLinkClick(item.link)}
               >
                 <Text
@@ -180,7 +194,7 @@ function Navbar({ lang, data }: props) {
                 >
                   {item?.title}
                 </Text>
-              </ScrollLink>
+              </div>
             )
           )}
         </div>
@@ -194,7 +208,7 @@ function Navbar({ lang, data }: props) {
             isOpen && "translate-y-0 duration-500  ",
           ].join(" ")}
         >
-          {navbarList.map((item, index) => {
+          {data?.navLinks?.map((item: any, index: any) => {
             return (
               <Link
                 href={item?.link || ""}

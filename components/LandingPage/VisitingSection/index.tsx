@@ -32,15 +32,15 @@ function VisitingSection({ data }: Props) {
         id="visit"
       >
         <div className="md:col-span-5 col-span-12 flex flex-col justify-end">
-          <h2 className="text-2xl">{data.heading}</h2>
-          <h5 className="mt-5 text-lg">{data.subHeading}</h5>
+          <h2 className="text-2xl">{data?.heading}</h2>
+          <h5 className="mt-5 text-lg">{data?.subHeading}</h5>
           {data.hours.map((dayHour, index) => (
             <div
               className="flex justify-between text-[#646464] mt-3"
               key={index}
             >
               <p>{capitalizeFirstLetter(dayHour.day)}</p>
-              <p>{dayHour.hour}</p>
+              <p>{dayHour?.hour}</p>
             </div>
           ))}
         </div>
@@ -49,13 +49,13 @@ function VisitingSection({ data }: Props) {
             <Carousel carouselType="shopCard" options={OPTIONS}>
               <>
                 <CarosuelSlide>
-                  {data.images.map((item, index) => (
+                  {data?.images?.map((item, index) => (
                     <CarouselCard img={urlForImage(item)} key={index} />
                   ))}
                 </CarosuelSlide>
               </>
             </Carousel>
-            <p className="absolute bottom-3 ml-10">{data.title || ""}</p>
+            <p className="absolute bottom-3 ml-10">{data?.title || ""}</p>
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ function Footer({ data }: any) {
         <div className="md:col-span-5 col-span-12 flex flex-col justify-end pt-0">
           <div className=" flex items-center p-4 ">
             <ReactSVG
-              src={urlForImage(data.header.logo) || ""}
+              src={urlForImage(data?.header?.logo) || ""}
               beforeInjection={(svg) => {
                 svg.setAttribute("style", "width: 100px; height: 100px;");
               }}
@@ -30,20 +30,20 @@ function Footer({ data }: any) {
           <div className="md:px-7 px-4 md:mt-9  mt-4">
             <h2 className="text-2xl  "> {data.contact.title}</h2>
             <div className="flex justify-between text-[#646464] mt-3">
-              {data.contact.description}
+              {data?.contact.description}
             </div>
             <div className="flex justify-between text-[#646464] mt-3">
-              {data.contact.phone}
+              {data?.contact.phone}
             </div>
             <div className="flex justify-between text-[#646464] mt-3">
-              {data.contact.email}
+              {data?.contact.email}
             </div>
           </div>
         </div>
         <div className="md:col-span-5 col-span-6 md:ml-44 flex flex-col justify-around mb-20 px-4 mt-20 md:mt-0">
           <h2 className="md:text-2xl text-xl">{data.navLinks.title}</h2>
 
-          {data.navLinks.links.map((item: any, index: number) => {
+          {data?.navLinks?.links?.map((item: any, index: number) => {
             return (
               <>
                 <div className="flex justify-between text-[#646464] mt-3">
@@ -58,7 +58,7 @@ function Footer({ data }: any) {
         <div className="md:col-span-2 col-span-6 flex flex-col justify-around mb-20 mt-20 md:mt-0">
           <h2 className="md:text-2xl text-xl">{data.legalLinks.title}</h2>
 
-          {data.legalLinks.links.map((item: any, index: number) => {
+          {data?.legalLinks?.links?.map((item: any, index: number) => {
             return (
               <>
                 <div className="flex justify-between text-[#646464] mt-3">

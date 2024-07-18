@@ -172,7 +172,7 @@ const ProjectDetail = async ({ params }: Props) => {
         {/* Next Project Section */}
         <NextProjectButton
           color={collection.textColor}
-          nextProjectSlug={project.nextProjectSlug}
+          nextProjectSlug={collection.nextProjectSlug}
         />
       </div>
     </div>

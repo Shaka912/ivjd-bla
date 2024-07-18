@@ -107,7 +107,10 @@ const ContactForm = ({ rightImg, lang }: any) => {
                 </label>
               </div> */}
               <div className="pt-5">
-                <button className="bg-black w-20 h-10 rounded-xl text-white text-base">
+                <button
+                  className=" w-20 h-10 rounded-xl  text-base"
+                  style={{ backgroundColor: "black", color: "white" }}
+                >
                   Enviar
                 </button>
               </div>
