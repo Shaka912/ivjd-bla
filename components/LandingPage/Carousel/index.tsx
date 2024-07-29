@@ -13,7 +13,7 @@ interface cardArrayProp {
 function HomeCarousel({ data }: cardArrayProp) {
   return (
     <>
-      <div className={" overflow-hidden w-full  relative -z-40 "}>
+      <div className={" overflow-hidden w-full  relative  md:z-0"}>
         <ReactHomeCarousel>
           {data?.map((card, index) => {
             return (

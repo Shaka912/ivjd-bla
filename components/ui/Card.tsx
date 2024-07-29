@@ -51,58 +51,10 @@ const Card: React.FC<CardProps> = ({
   const HomeHeadCard = () => {
     return (
       <div className={styles.container}>
-        {main && (
-          <div className={styles.liveTextContainer}>
-            <div className={classNames(styles.extraContainerInner)}>
-              {/* <Image
-                src={"/images/icons/rounded-logo.svg"}
-                alt=""
-                width={32}
-                height={32}
-                className={styles.logo}
-                style={{ objectFit: "contain" }}
-              /> */}
-              {/* <Button varient="outline" title="Originals" /> */}
-            </div>
-            <div className={styles.liveText}>
-              {/* {!main && liveText && <AnimatedText />} */}
-            </div>
-          </div>
-        )}
-
         <div className={styles.featuredContainer}></div>
 
         {videoUrl ? (
-          <div className={styles.videoContainer}>
-            {/* <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              
-            >
-              <source src={proxyUrl(videoUrl, true)} type="video/mp4" />
-            </video> */}
-            {/* <VideoPlayer
-              className={`${styles.videos}`}
-              src={proxy ? proxyUrl(videoUrl, true, false, true) : videoUrl}
-              style={{ borderRadius: 20 }}
-            /> */}
-
-            {/* <CldVideoPlayer
-              width={"100%"}
-              height={"100%"}
-              src={videoUrl}
-              autoPlay="always"
-              id="cloudinaryPlayer"
-              controls={false}
-              showLogo={false}
-              muted={true}
-              loop={true}
-              transformation={{ crop: "fill" }}
-              // className={styles.videos}
-            /> */}
-          </div>
+          <div className={styles.videoContainer}></div>
         ) : (
           <Image
             src={imgUrl}

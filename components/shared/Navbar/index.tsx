@@ -198,13 +198,16 @@ function Navbar({ lang, data }: props) {
             )
           )}
         </div>
-        <div className="flex md:hidden  " onClick={() => setIsOpen(!isOpen)}>
+        <div
+          className="flex md:hidden relative z-20 "
+          onClick={() => setIsOpen(!isOpen)}
+        >
           <p className=" text-lg">Menu</p>
         </div>
         {/* mobile menu */}
         <div
           className={[
-            "pt-[168px] md:pt-0  flex-col flex items-center gap-16 absolute top-0 left-0 -z-10 right-0 h-screen bg-primary -translate-y-[100%] transition-transform ease-in-out duration-300",
+            "pt-[168px] md:pt-0  flex-col flex items-center gap-16 absolute top-0 left-0  right-0 h-screen bg-primary -translate-y-[100%] transition-transform ease-in-out duration-300",
             isOpen && "translate-y-0 duration-500  ",
           ].join(" ")}
         >
