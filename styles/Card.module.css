@@ -3,7 +3,8 @@
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px; */
   position: relative;
-  height: 36vw;
+  height: 560px !important;
+  object-fit: cover;
   /* min-width: 94vw;
   width: 94vw; */
   overflow: hidden;
@@ -17,6 +18,7 @@
   bottom: 0;
   z-index: -1;
   object-fit: cover;
+  height: 560px !important;
 }
 
 .videoContainer {
@@ -195,8 +197,8 @@
   .container {
     position: relative;
     width: 100%;
-    min-width: 270px;
-    height: 600px;
+    /* min-width: 270px; */
+    height: 353px;
     overflow: hidden;
   }
   .content {
@@ -266,11 +268,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%);
   z-index: 10;
   opacity: 0;
   transition: all 0.35s ease;
@@ -375,11 +373,7 @@
   .hoverableMobOverlayContainer {
     display: block;
     position: absolute;
-    background: linear-gradient(
-      179.23deg,
-      rgba(0, 0, 0, 0.2) 13.79%,
-      rgba(0, 0, 0, 0) 39.87%
-    );
+    background: linear-gradient(179.23deg, rgba(0, 0, 0, 0.2) 13.79%, rgba(0, 0, 0, 0) 39.87%);
     top: 0;
     left: 0;
     bottom: 0;

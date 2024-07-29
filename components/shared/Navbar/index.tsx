@@ -111,20 +111,20 @@ function Navbar({ lang, data }: props) {
     <>
       <div
         className={[
-          "flex items-baseline justify-between  transition-all duration-300 ease-in-out   w-full absolute top-0 left-0 right-0  z-50 gap-24 px-8 pt-12 ",
+          "flex items-baseline justify-between  transition-all duration-300 ease-in-out   w-full absolute top-0 left-0 right-0 pb-0 z-50  gap-24  px-5 pt-5 ",
           disableNavbar && "!hidden",
           pathname.includes("/expos") && "text-primary",
           blend && "!mix-blend-difference text-white",
         ].join(" ")}
       >
         {/* left text */}
-        <div className="flex gap-4 w-1/2 md:w-[400px] ">
+        <div className="flex gap-4 w-full md:w-[400px] ">
           <h5 className=" text-sm md:text-md">{data.header.title}</h5>
         </div>
 
         {/* Right Container */}
 
-        <div className="p-5 hidden items-center md:gap-24 md:flex z-10  ">
+        <div className=" hidden items-center md:gap-10 md:flex z-10  ">
           {data?.navLinks?.map((item: any, index: number) =>
             item.dropDown ? (
               <div key={index}>

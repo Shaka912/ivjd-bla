@@ -111,7 +111,7 @@ const ContactForm = ({ rightImg, lang }: any) => {
                   className=" w-20 h-10 rounded-xl  text-base"
                   style={{ backgroundColor: "black", color: "white" }}
                 >
-                  Enviar
+                  {lang == "es" ? "Enviar" : "Send"}
                 </button>
               </div>
             </div>
