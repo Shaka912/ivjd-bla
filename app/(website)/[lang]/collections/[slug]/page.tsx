@@ -62,7 +62,7 @@ const ProjectDetail = async ({ params }: Props) => {
         {/* <h1 className="text-7xl  fixed bottom-52 z-20">{collection.title}</h1> */}
       </div>
       {/* Content */}
-      <h1 className="md:text-7xl text-4xl  absolute bottom-[60vh] md:bottom-[27rem] left-5 break-words">
+      <h1 className="md:text-7xl text-4xl  absolute top-[35vh] md:bottom-[27rem] left-5 break-words">
         {collection.title}
       </h1>
       <div
@@ -100,7 +100,7 @@ const ProjectDetail = async ({ params }: Props) => {
                   key={index}
                   className="h-full col-span-1 flex flex-col justify-start md:items-start items-center mb-6 px-10 md:mb-0"
                 >
-                  <div className="relative md:w-[400px] w-full sm:h-[418px] h-[370px] overflow-hidden">
+                  <div className="relative md:w-[400px] w-full sm:h-[418px]  overflow-hidden">
                     <img
                       src={urlForImage(item.image) || ""}
                       alt="Project Image"
