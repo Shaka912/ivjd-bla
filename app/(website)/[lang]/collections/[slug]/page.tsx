@@ -112,7 +112,7 @@ const ProjectDetail = async ({ params }: Props) => {
                       }}
                     />
                   </div>
-                  <div className="pt-4  md:mb-11 ">
+                  <div className="pt-4  md:mb-11 w-full md:w-auto text-left ">
                     {item.description.split("\n").map((line, lineIndex) => (
                       <p key={lineIndex} className="leading-relaxed">
                         {line}
@@ -125,8 +125,8 @@ const ProjectDetail = async ({ params }: Props) => {
           {/* Second Image Column */}
 
           <div className="grid grid-cols-1">
-            <div className="flex flex-col  items-start">
-              <div className="relative  md:w-[96vw] h-[160px] w-full md:h-auto">
+            <div className="flex flex-col  md:items-start items-center px-10 md:px-0">
+              <div className="relative  md:w-[96vw]  w-full md:h-auto">
                 <img
                   src={urlForImage(collection.featuredImage1.image) || ""}
                   alt="images gallery"
@@ -134,7 +134,7 @@ const ProjectDetail = async ({ params }: Props) => {
                 />
               </div>
               {/* Image description */}
-              <div className="mt-4 md:mt-10 xl:mt-16 w-full px-10 md:px-0">
+              <div className="mt-4 md:mt-10 xl:mt-16 w-full ">
                 {collection.featuredImage1.description
                   .split("\n")
                   .map((line, lineIndex) => (
@@ -149,15 +149,15 @@ const ProjectDetail = async ({ params }: Props) => {
           <div className="grid md:grid-cols-2 grid-cols-1 gap-4 md:pt-10 pt-4">
             {collection.collection2R.map((item, index) => (
               <>
-                <div className="flex flex-col justify-center items-center md:items-baseline mt-5 md:mt-0">
+                <div className="flex flex-col justify-center items-center md:items-baseline mt-5 md:mt-0 px-10 md:px-0">
                   <div className="flex w-full md:w-fit aspect-w-1 aspect-h-1  justify-center ">
                     <img
                       src={urlForImage(item.image) || ""}
                       alt="Jarra"
-                      className="object-contain   sm:h-[418px] h-[370px]"
+                      className="object-contain   sm:h-[418px] "
                     />
                   </div>
-                  <div className=" mt-4 px-10 md:px-0">
+                  <div className=" mt-4 w-full">
                     {item.description.split("\n").map((line, lineIndex) => (
                       <p key={lineIndex} className=" leading-relaxed">
                         {line}
