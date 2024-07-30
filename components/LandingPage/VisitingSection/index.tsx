@@ -21,6 +21,7 @@ function VisitingSection({ data }: Props) {
     containScroll: "keepSnaps",
     watchSlides: true,
     watchResize: true,
+    dragFree: true,
   };
 
   const pathName = usePathname();
@@ -47,13 +48,11 @@ function VisitingSection({ data }: Props) {
         <div className="md:col-span-7 col-span-12 flex  flex-col items-start overflow-hidden relative">
           <div>
             <Carousel carouselType="shopCard" options={OPTIONS}>
-              <>
-                <CarosuelSlide>
-                  {data?.images?.map((item, index) => (
-                    <CarouselCard img={urlForImage(item)} key={index} />
-                  ))}
-                </CarosuelSlide>
-              </>
+              <CarosuelSlide>
+                {data?.images?.map((item, index) => (
+                  <CarouselCard img={urlForImage(item)} key={index} />
+                ))}
+              </CarosuelSlide>
             </Carousel>
             <p className="absolute bottom-3 ml-10">{data?.title || ""}</p>
           </div>

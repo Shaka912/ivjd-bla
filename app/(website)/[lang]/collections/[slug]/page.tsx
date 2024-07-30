@@ -62,12 +62,12 @@ const ProjectDetail = async ({ params }: Props) => {
         {/* <h1 className="text-7xl  fixed bottom-52 z-20">{collection.title}</h1> */}
       </div>
       {/* Content */}
-      <h1 className="md:text-7xl text-4xl  absolute bottom-[33rem] md:bottom-56 left-5 break-words">
+      <h1 className="md:text-7xl text-4xl  absolute bottom-[33rem] md:bottom-[27rem] left-5 break-words">
         {collection.title}
       </h1>
       <div
         style={{ backgroundColor: backgroundColor }}
-        className="z-10 relative sm:mt-[80vh] mt-[40vh] w-fit"
+        className="z-10 relative sm:mt-[60vh] mt-[40vh] w-fit"
       >
         {/* Top Text Section */}
 
@@ -93,14 +93,14 @@ const ProjectDetail = async ({ params }: Props) => {
         <div className="px-8 md:px-30 mt-30 md:mt-4 flex flex-col md:gap-11">
           {/* First Images Row */}
 
-          <div className="grid md:grid-cols-3 grid-cols-1 items-baseline md:gap-x-24 md:mb-20 mb-5">
+          <div className="grid md:grid-cols-3 grid-cols-1 items-baseline  md:gap-x-24 md:mb-20 mb-5">
             {collection.collection1R.length > 0 &&
               collection.collection1R.map((item, index) => (
                 <div
                   key={index}
-                  className="h-full col-span-1 flex flex-col justify-start items-start mb-6 md:mb-0"
+                  className="h-full col-span-1 flex flex-col justify-start md:items-start items-center mb-6 px-10 md:mb-0"
                 >
-                  <div className="relative md:w-[400px]  sm:h-[418px] h-[370px] overflow-hidden">
+                  <div className="relative md:w-[400px] w-full sm:h-[418px] h-[370px] overflow-hidden">
                     <img
                       src={urlForImage(item.image) || ""}
                       alt="Project Image"
@@ -112,7 +112,7 @@ const ProjectDetail = async ({ params }: Props) => {
                       }}
                     />
                   </div>
-                  <div className="pt-3 mb-11">
+                  <div className="pt-4  md:mb-11 ">
                     {item.description.split("\n").map((line, lineIndex) => (
                       <p key={lineIndex} className="leading-relaxed">
                         {line}
@@ -126,7 +126,7 @@ const ProjectDetail = async ({ params }: Props) => {
 
           <div className="grid grid-cols-1">
             <div className="flex flex-col  items-start">
-              <div className="relative  md:w-[96vw] h-[160px] md:h-auto">
+              <div className="relative  md:w-[96vw] h-[160px] w-full md:h-auto">
                 <img
                   src={urlForImage(collection.featuredImage1.image) || ""}
                   alt="images gallery"
@@ -134,7 +134,7 @@ const ProjectDetail = async ({ params }: Props) => {
                 />
               </div>
               {/* Image description */}
-              <div className="mt-4 md:mt-10 xl:mt-16 w-full ">
+              <div className="mt-4 md:mt-10 xl:mt-16 w-full px-10 md:px-0">
                 {collection.featuredImage1.description
                   .split("\n")
                   .map((line, lineIndex) => (
@@ -146,18 +146,18 @@ const ProjectDetail = async ({ params }: Props) => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 grid-cols-1 gap-4 pt-10">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-4 md:pt-10 pt-4">
             {collection.collection2R.map((item, index) => (
               <>
-                <div className="flex flex-col justify-center mt-5 md:mt-0">
-                  <div className=" w-full md:w-fit aspect-w-1 aspect-h-1 ">
+                <div className="flex flex-col justify-center items-center md:items-baseline mt-5 md:mt-0">
+                  <div className="flex w-full md:w-fit aspect-w-1 aspect-h-1  justify-center ">
                     <img
                       src={urlForImage(item.image) || ""}
                       alt="Jarra"
                       className="object-contain   sm:h-[418px] h-[370px]"
                     />
                   </div>
-                  <div className=" mt-4 ">
+                  <div className=" mt-4 px-10 md:px-0">
                     {item.description.split("\n").map((line, lineIndex) => (
                       <p key={lineIndex} className=" leading-relaxed">
                         {line}

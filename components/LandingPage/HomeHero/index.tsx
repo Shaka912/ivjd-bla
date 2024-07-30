@@ -19,21 +19,24 @@ function HomeHero({ data }: Props) {
           src={urlForImage(data.header.logo) || ""}
           alt="logo"
         /> */}
-     
-     <ReactSVG
-    src={urlForImage(data.header.logo) || ""}
-    beforeInjection={(svg) => {
-      svg.setAttribute("class", "w-[40px] h-[48px] md:w-[60px] md:h-[73px]");
-    }}
-  />
-        <h1 className="text-3xl md:text-7xl md:ml-10 ml-5">
+
+        <ReactSVG
+          src={urlForImage(data.header.logo) || ""}
+          beforeInjection={(svg) => {
+            svg.setAttribute(
+              "class",
+              "w-[40px] h-[48px] md:w-[60px] md:h-[73px]"
+            );
+          }}
+        />
+        <h1 className="text-3xl md:text-7xl md:ml-10 ml-5 mb-3 md:mb-0">
           {data.header.title || " "}
         </h1>
       </div>
       <HomeCarousel data={data.cards} />
 
       <div
-        className="md:py-20  px-6 grid grid-cols-1 md:grid-cols-2 overflow-hidden"
+        className="md:py-20 mt-10 px-6 grid grid-cols-1 md:grid-cols-2 overflow-hidden"
         id="instute"
       >
         <div className="md:pl-10 mb-6 md:mb-0 ">

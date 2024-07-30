@@ -184,14 +184,15 @@ function HomeCollections({ data, lang }: Props) {
   const onMouseLeaveRow = () => {
     setHoveredIdx(null);
   };
+
   return (
     <>
       <main
         className="w-full mb-16 flex flex-col px-4   dark:text-light"
         id="collection"
       >
-        <h2 className="font-medium text-xl w-full ml-4   mt-32">
-          {data.title}
+        <h2 className="font-medium text-xl w-full md:ml-4 ml-1   md:mt-32 mt-24 mb-5 md:mb-0">
+          {lang == "es" ? "COLECCIONES" : "Collections"}
         </h2>
         <ul>
           <AnimatePresence>
