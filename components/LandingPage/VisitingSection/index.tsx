@@ -28,7 +28,7 @@ function VisitingSection({ data }: Props) {
   return (
     <>
       <div
-        className={`grid grid-cols-12 gap-4 px-4 w-full h-[70vh] justify-center items-center ${kk ? "md:mt-30 mt-20" : "md:mt-60 mt-20"} `}
+        className={`grid grid-cols-12 gap-8 px-5 w-full  justify-center items-center ${kk ? "md:mt-30 mt-20" : "md:mt-60 mt-20"} `}
         id="visit"
       >
         <div className="md:col-span-5 col-span-12 flex flex-col justify-end">
@@ -44,7 +44,7 @@ function VisitingSection({ data }: Props) {
             </div>
           ))}
         </div>
-        <div className="md:col-span-7 col-span-12 flex flex-col items-start overflow-hidden relative">
+        <div className="md:col-span-7 col-span-12 flex  flex-col items-start overflow-hidden relative">
           <div>
             <Carousel carouselType="shopCard" options={OPTIONS}>
               <>

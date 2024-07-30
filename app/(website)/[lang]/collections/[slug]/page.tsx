@@ -51,7 +51,7 @@ const ProjectDetail = async ({ params }: Props) => {
       className={`pb-[103px]  w-full`}
     >
       <div className="fixed inset-0  -z-10 w-screen h-[80vh]">
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-[340px] sm:h-[625px]">
           <Image
             src={urlForImage(collection.featuredImage) || ""}
             alt="Hero image"
@@ -62,12 +62,12 @@ const ProjectDetail = async ({ params }: Props) => {
         {/* <h1 className="text-7xl  fixed bottom-52 z-20">{collection.title}</h1> */}
       </div>
       {/* Content */}
-      <h1 className="md:text-7xl text-4xl  absolute bottom-56 md:bottom-56 left-5 break-words">
+      <h1 className="md:text-7xl text-4xl  absolute bottom-[33rem] md:bottom-56 left-5 break-words">
         {collection.title}
       </h1>
       <div
         style={{ backgroundColor: backgroundColor }}
-        className="z-10 relative mt-[80vh] w-fit"
+        className="z-10 relative sm:mt-[80vh] mt-[40vh] w-fit"
       >
         {/* Top Text Section */}
 
@@ -100,7 +100,7 @@ const ProjectDetail = async ({ params }: Props) => {
                   key={index}
                   className="h-full col-span-1 flex flex-col justify-start items-start mb-6 md:mb-0"
                 >
-                  <div className="relative md:w-[400px]  h-[550px] overflow-hidden">
+                  <div className="relative md:w-[400px]  sm:h-[418px] h-[370px] overflow-hidden">
                     <img
                       src={urlForImage(item.image) || ""}
                       alt="Project Image"
@@ -125,8 +125,8 @@ const ProjectDetail = async ({ params }: Props) => {
           {/* Second Image Column */}
 
           <div className="grid grid-cols-1">
-            <div className="flex flex-col items-center">
-              <div className="relative w-full md:w-[96vw] h-[50vw] md:h-auto">
+            <div className="flex flex-col  items-start">
+              <div className="relative  md:w-[96vw] h-[160px] md:h-auto">
                 <img
                   src={urlForImage(collection.featuredImage1.image) || ""}
                   alt="images gallery"
@@ -154,7 +154,7 @@ const ProjectDetail = async ({ params }: Props) => {
                     <img
                       src={urlForImage(item.image) || ""}
                       alt="Jarra"
-                      className="object-contain md:w-96 md:h-full"
+                      className="object-contain   sm:h-[418px] h-[370px]"
                     />
                   </div>
                   <div className=" mt-4 ">

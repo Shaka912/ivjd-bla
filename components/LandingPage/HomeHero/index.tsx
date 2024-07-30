@@ -11,7 +11,7 @@ interface Props {
 function HomeHero({ data }: Props) {
   return (
     <>
-      <div className=" flex items-center p-4 pt-0 -z-40 md:z-0 relative">
+      <div className=" flex items-center p-4 pt-0 -z-40 md:z-0 relative ">
         {/* <Image
           width={60}
           height={73}
@@ -19,12 +19,13 @@ function HomeHero({ data }: Props) {
           src={urlForImage(data.header.logo) || ""}
           alt="logo"
         /> */}
-        <ReactSVG
-          src={urlForImage(data.header.logo) || ""}
-          beforeInjection={(svg) => {
-            svg.setAttribute("style", "width: 60px; height: 73px;");
-          }}
-        />
+     
+     <ReactSVG
+    src={urlForImage(data.header.logo) || ""}
+    beforeInjection={(svg) => {
+      svg.setAttribute("class", "w-[40px] h-[48px] md:w-[60px] md:h-[73px]");
+    }}
+  />
         <h1 className="text-3xl md:text-7xl md:ml-10 ml-5">
           {data.header.title || " "}
         </h1>

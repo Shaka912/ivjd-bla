@@ -111,7 +111,7 @@ function Navbar({ lang, data }: props) {
     <>
       <div
         className={[
-          "flex items-baseline justify-between  transition-all duration-300 ease-in-out   w-full absolute top-0 left-0 right-0 pb-0 z-50  gap-24  px-5 pt-5 ",
+          "flex items-baseline justify-between  transition-all duration-300 ease-in-out   w-full absolute top-0 left-0 right-0 pb-0 z-50  gap-16 sm:gap-24  px-5 pt-5 ",
           disableNavbar && "!hidden",
           pathname.includes("/expos") && "text-primary",
           blend && "!mix-blend-difference text-white",
@@ -119,7 +119,7 @@ function Navbar({ lang, data }: props) {
       >
         {/* left text */}
         <div className="flex gap-4 w-full md:w-[400px] ">
-          <h5 className=" text-sm md:text-md">{data.header.title}</h5>
+          <h5 className=" text-sm md:text-base">{data.header.title}</h5>
         </div>
 
         {/* Right Container */}
