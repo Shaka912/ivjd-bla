@@ -51,7 +51,7 @@ const ProjectDetail = async ({ params }: Props) => {
       className={`pb-[103px]  w-full`}
     >
       <div className="fixed inset-0  -z-10 w-screen h-[80vh]">
-        <div className="relative w-full h-[340px] sm:h-[625px]">
+        <div className="relative w-full h-[440px] sm:h-[625px]">
           <Image
             src={urlForImage(collection.featuredImage) || ""}
             alt="Hero image"
@@ -62,12 +62,12 @@ const ProjectDetail = async ({ params }: Props) => {
         {/* <h1 className="text-7xl  fixed bottom-52 z-20">{collection.title}</h1> */}
       </div>
       {/* Content */}
-      <h1 className="md:text-7xl text-4xl  absolute bottom-[33rem] md:bottom-[27rem] left-5 break-words">
+      <h1 className="md:text-7xl text-4xl  absolute bottom-[60vh] md:bottom-[27rem] left-5 break-words">
         {collection.title}
       </h1>
       <div
         style={{ backgroundColor: backgroundColor }}
-        className="z-10 relative sm:mt-[60vh] mt-[40vh] w-fit"
+        className="z-10 relative sm:mt-[60vh] mt-[42vh] w-fit"
       >
         {/* Top Text Section */}
 
