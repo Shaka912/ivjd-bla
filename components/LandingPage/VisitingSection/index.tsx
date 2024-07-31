@@ -18,10 +18,9 @@ const capitalizeFirstLetter = (string: string) => {
 function VisitingSection({ data }: Props) {
   const OPTIONS: EmblaOptionsType = {
     // dragFree: false,
-    containScroll: "keepSnaps",
+    // containScroll: "keepSnaps",
     watchSlides: true,
     watchResize: true,
-    dragFree: true,
   };
 
   const pathName = usePathname();
@@ -29,10 +28,10 @@ function VisitingSection({ data }: Props) {
   return (
     <>
       <div
-        className={`grid grid-cols-12 gap-8 px-5 w-full  justify-center items-center ${kk ? "md:mt-30 mt-20" : "md:mt-60 mt-20"} `}
+        className={`flex md:flex-row mb-24 flex-col gap-12 lg:gap-28 xl:gap-36 px-5 w-full  justify-center items-center ${kk ? "md:mt-30 mt-20" : "md:mt-60 mt-20"} `}
         id="visit"
       >
-        <div className="md:col-span-5 col-span-12 flex flex-col justify-end">
+        <div className="flex w-full md:w-1/2 flex-col justify-end">
           <h2 className="text-2xl">{data?.heading}</h2>
           <h5 className="mt-5 text-lg">{data?.subHeading}</h5>
           {data.hours.map((dayHour, index) => (
@@ -45,17 +44,19 @@ function VisitingSection({ data }: Props) {
             </div>
           ))}
         </div>
-        <div className="md:col-span-7 col-span-12 flex  flex-col items-start overflow-hidden relative">
-          <div>
-            <Carousel carouselType="shopCard" options={OPTIONS}>
+        <div className="relative w-full md:w-[50%] cursor-pointer">
+          <Carousel carouselType="shopCard" options={OPTIONS}>
+            <>
               <CarosuelSlide>
                 {data?.images?.map((item, index) => (
                   <CarouselCard img={urlForImage(item)} key={index} />
                 ))}
               </CarosuelSlide>
-            </Carousel>
-            <p className="absolute bottom-3 ml-10">{data?.title || ""}</p>
-          </div>
+            </>
+          </Carousel>
+          <p className="absolute bottom-[-2.5rem] ml-10 text-[#000000]">
+            {data?.title || ""}
+          </p>
         </div>
       </div>
     </>
