@@ -47,11 +47,15 @@ function VisitingSection({ data }: Props) {
         <div className="relative w-full md:w-[50%] cursor-pointer">
           <Carousel carouselType="shopCard" options={OPTIONS}>
             <>
-              <CarosuelSlide>
-                {data?.images?.map((item, index) => (
-                  <CarouselCard img={urlForImage(item)} key={index} />
-                ))}
-              </CarosuelSlide>
+              {data?.images?.flatMap((item, index) => {
+                // Duplicate each image by mapping it twice
+                const images = [item, item];
+                return images.map((image, idx) => (
+                  <CarosuelSlide key={idx}>
+                    <CarouselCard img={urlForImage(image)} />
+                  </CarosuelSlide>
+                ));
+              })}
             </>
           </Carousel>
           <p className="absolute bottom-[-2.5rem] ml-10 text-[#000000]">
