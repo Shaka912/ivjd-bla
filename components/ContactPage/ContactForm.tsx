@@ -52,7 +52,7 @@ const ContactForm = ({ rightImg, lang }: any) => {
       <FormProvider {...methods}>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-x-7 pt-4 px-7">
           <div className="col-span-1">
-            <div className="">
+            {/* <div className="">
               <div className="text-base text-[#000000]">
                 {lang === "es" ? "Nombre" : "Name"}
               </div>
@@ -91,21 +91,6 @@ const ContactForm = ({ rightImg, lang }: any) => {
                   </span>
                 </label>
               </div>
-
-              {/* <div className="pt-2">
-                <label className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    className="custom-checkbox"
-                    checked={isChecked}
-                    onChange={handleCheckboxChange}
-                  />
-                  <span className="text-base text-[#666666] pl-4">
-                    Acepto los términos y condiciones y la política de
-                    privacidad (más información en la parte inferior)
-                  </span>
-                </label>
-              </div> */}
               <div className="pt-5">
                 <button
                   className=" w-20 h-10 rounded-xl  text-base"
@@ -114,8 +99,22 @@ const ContactForm = ({ rightImg, lang }: any) => {
                   {lang == "es" ? "Enviar" : "Send"}
                 </button>
               </div>
+            </div> */}
+            <div>
+              <h1 className="text-[20px] mb-4">
+                {lang === "es"
+                  ? "PUEDES ESCRIBIRNOS A:"
+                  : "YOU CAN WRITE TO US AT:"}
+              </h1>
+              <a
+                href="mailto:info@instvaldonjuan.com"
+                className="text-[#646464] md:text-4xl text-2xl"
+              >
+                info@instvaldonjuan.com
+              </a>
             </div>
           </div>
+          {/* right image */}
           <div className="col-span-1 h-full mt-4 md:mt-0">
             <img
               src={urlForImage(rightImg) || ""} // Use the local image path
