@@ -71,6 +71,7 @@ export interface Collection {
   collection1R: HomeHeroCard[];
   featuredImage1: HomeHeroCard;
   collection2R: HomeHeroCard[];
+  logo: any;
 }
 
 export interface HeaderFooter {

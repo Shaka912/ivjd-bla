@@ -39,6 +39,7 @@ export async function getSingleCollection(slug: string): Promise<Collection> {
       title,
       "slug": slug.current,
       featuredImage,
+      logo,
       description,
       collection1R[] {
         ...,

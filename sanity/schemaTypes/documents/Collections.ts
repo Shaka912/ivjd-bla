@@ -11,7 +11,12 @@ export default defineType({
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
-
+    defineField({
+      name: "logo",
+      type: "image",
+      options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: "slug",
       title: "Slug",
