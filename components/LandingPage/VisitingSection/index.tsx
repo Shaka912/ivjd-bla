@@ -6,6 +6,7 @@ import CarouselCard from "@/components/ui/CarouselCard";
 import { HomeVistingProp } from "@/sanity/api/type";
 import { urlForImage } from "@/sanity/lib/image";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 interface Props {
   data: HomeVistingProp;
 }
@@ -49,7 +50,7 @@ function VisitingSection({ data }: Props) {
             <>
               {data?.images?.flatMap((item, index) => {
                 // Duplicate each image by mapping it twice
-                const images = [item, item];
+                const images = [item];
                 return images.map((image, idx) => (
                   <CarosuelSlide key={idx}>
                     <CarouselCard img={urlForImage(image)} />
@@ -58,9 +59,11 @@ function VisitingSection({ data }: Props) {
               })}
             </>
           </Carousel>
-          <p className="absolute bottom-[-2.5rem] ml-10 text-[#000000]">
-            {data?.title || ""}
-          </p>
+          <Link href={"/contacto"}>
+            <p className="absolute bottom-[-2.5rem] ml-10 text-[#000000]">
+              {data?.title || ""}
+            </p>
+          </Link>
         </div>
       </div>
     </>

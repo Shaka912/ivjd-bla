@@ -47,8 +47,9 @@ function CollectionPage({
           </div>
           <img
             src={collection.logo ? urlForImage(collection.logo) : "/logo.png"}
-            className="absolute top-5 left-5"
+            className="absolute top-5 left-5 cursor-pointer"
             alt="ss"
+            onClick={() => (window.location.href = "/")}
           />
         </div>
 
