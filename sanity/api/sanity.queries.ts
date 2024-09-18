@@ -73,7 +73,11 @@ export async function getSingleCollection(slug: string): Promise<Collection> {
       _id,
       country,
       year,
-      "nextProjectSlug": *[_type == "collections" && ^._createdAt < _createdAt] | order(_createdAt asc)[0].slug.current
+       "nextProjectSlug": coalesce(
+        *[_type == "collections" && ^._createdAt < _createdAt] | order(_createdAt asc)[0].slug.current,
+        *[_type == "collections"] | order(_createdAt asc)[0].slug.current
+      )
+      
     }
     `,
     { slug }

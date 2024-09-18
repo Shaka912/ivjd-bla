@@ -149,7 +149,7 @@ function Navbar({ lang, data }: props) {
                             <Text
                               tag="h5"
                               variant="subtitle"
-                              className="uppercase cursor-pointer "
+                              className=" cursor-pointer !font-bold "
                             >
                               {i18nConfig.localeNames[lang][locale]}
                             </Text>
