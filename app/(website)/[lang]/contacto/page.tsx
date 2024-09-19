@@ -41,7 +41,7 @@ export default async function Page({ params: { lang } }: Props) {
                   <>
                     <div className=" flex items-center pt-4 pb-4 px-7 ">
                       <Link href={"/"}>
-                        <Image
+                        <img
                           width={70}
                           height={73}
                           style={{ objectFit: "contain" }}

@@ -149,7 +149,7 @@ function Navbar({ lang, data }: props) {
                             <Text
                               tag="h5"
                               variant="subtitle"
-                              className=" cursor-pointer !font-bold "
+                              className=" cursor-pointer !font-semibold "
                             >
                               {i18nConfig.localeNames[lang][locale]}
                             </Text>
@@ -198,11 +198,43 @@ function Navbar({ lang, data }: props) {
             )
           )}
         </div>
-        <div
-          className="flex md:hidden relative z-20 "
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <p className=" text-lg">Menu</p>
+        <div className="flex flex-col md:hidden relative z-20 space-y-2">
+          <p className=" text-lg" onClick={() => setIsOpen(!isOpen)}>
+            Menu
+          </p>
+          <div>
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <div className="flex items-center space-x-2 justify-center">
+                  <Text
+                    tag="h5"
+                    variant="subtitle"
+                    className=" cursor-pointer "
+                  >
+                    {i18nConfig.localeNames[lang][lang]}
+                  </Text>
+                  <IoIosArrowDown />
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {i18nConfig.locales.map((locale, index1) => {
+                  return (
+                    <Link key={locale} href={redirectedPathName(locale)}>
+                      <DropdownMenuItem>
+                        <Text
+                          tag="h5"
+                          variant="subtitle"
+                          className=" cursor-pointer !font-semibold "
+                        >
+                          {i18nConfig.localeNames[lang][locale]}
+                        </Text>
+                      </DropdownMenuItem>
+                    </Link>
+                  );
+                })}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
         {/* mobile menu */}
         <div

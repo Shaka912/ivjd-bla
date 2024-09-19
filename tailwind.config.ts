@@ -45,6 +45,15 @@ const config = {
             inverted: colors.white,
           },
         },
+        primary: "#F5F5F5",
+        secondary: "var(--background-secondary)",
+        terciary: "var(--background-terciary)",
+        acent: "var(--background-acent)",
+        grey: "var(--background-grey)",
+        onHigh: "var(--content-onhigh)",
+        highDark: "var(--content-high-dark)",
+        contentMid: "var( --content-mid)",
+        contentLow: "var(--content-low)",
         // dark mode
         "dark-tremor": {
           brand: {
