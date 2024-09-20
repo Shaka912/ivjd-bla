@@ -11,7 +11,7 @@ interface Props {
 function HomeHero({ data }: Props) {
   return (
     <>
-      <div className=" flex items-center p-4 pt-0 -z-40 md:z-0 relative ">
+      <div className=" flex items-center p-4 pt-0  md:z-0 relative ">
         {/* <Image
           width={60}
           height={73}

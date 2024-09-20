@@ -9,8 +9,9 @@ import { Locale } from "@/i18n";
 const inter = Inter({ subsets: ["latin"] });
 export const revalidate = REVALIDATE_TIME;
 export const metadata: Metadata = {
-  title: "IVJD PROJECT",
-  description: "IVJD PROJECT",
+  title: "Instituto Valencia Don Juan",
+  description:
+    " El Instituto Valencia de Don Juan fue fundado en 1916 por don Guillermo de Osma y Scull y su esposa doña Adelaida Crooke y Guzmán",
 };
 export type Params = {
   lang: Locale;
