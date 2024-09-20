@@ -179,6 +179,7 @@ function CollectionPage({
           <NextProjectButton
             color={collection.textColor}
             nextProjectSlug={collection.nextProjectSlug}
+            lang={lang}
           />
         </div>
         {isViewerOpen && (

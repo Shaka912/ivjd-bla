@@ -202,7 +202,7 @@ function Navbar({ lang, data }: props) {
           <p className=" text-lg" onClick={() => setIsOpen(!isOpen)}>
             Menu
           </p>
-          <div>
+          {/* <div>
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <div className="flex items-center space-x-2 justify-center">
@@ -234,7 +234,7 @@ function Navbar({ lang, data }: props) {
                 })}
               </DropdownMenuContent>
             </DropdownMenu>
-          </div>
+          </div> */}
         </div>
         {/* mobile menu */}
         <div
@@ -245,22 +245,65 @@ function Navbar({ lang, data }: props) {
         >
           {data?.navLinks?.map((item: any, index: any) => {
             return (
-              <Link
-                href={item?.link || ""}
-                onClick={() => setIsOpen(false)}
-                onMouseEnter={() => onMouseEnterRow(index)}
-                onMouseLeave={onMouseLeaveRow}
-                key={index}
-              >
-                <Text
-                  tag="h5"
-                  variant="title"
-                  className={[" ", isOpen && "opacity-100"].join(" ")}
-                  hover="stroke"
-                >
-                  {item?.title}
-                </Text>
-              </Link>
+              <>
+                {item.dropDown ? (
+                  <div key={index}>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger>
+                        <div className="flex items-center space-x-2 justify-center">
+                          <Text
+                            tag="h5"
+                            variant="subtitle"
+                            className=" cursor-pointer "
+                          >
+                            {i18nConfig.localeNames[lang][lang]}
+                          </Text>
+                          <IoIosArrowDown />
+                        </div>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent>
+                        {i18nConfig.locales.map((locale, index1) => {
+                          return (
+                            <Link
+                              key={locale}
+                              href={redirectedPathName(locale)}
+                            >
+                              <DropdownMenuItem>
+                                <Text
+                                  tag="h5"
+                                  variant="subtitle"
+                                  className=" cursor-pointer !text-black !font-normal"
+                                >
+                                  {i18nConfig.localeNames[lang][locale]}
+                                </Text>
+                              </DropdownMenuItem>
+                            </Link>
+                          );
+                        })}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                ) : (
+                  <>
+                    <Link
+                      href={item?.link || ""}
+                      onClick={() => setIsOpen(false)}
+                      onMouseEnter={() => onMouseEnterRow(index)}
+                      onMouseLeave={onMouseLeaveRow}
+                      key={index}
+                    >
+                      <Text
+                        tag="h5"
+                        variant="title"
+                        className={[" ", isOpen && "opacity-100"].join(" ")}
+                        hover="stroke"
+                      >
+                        {item?.title}
+                      </Text>
+                    </Link>
+                  </>
+                )}
+              </>
             );
           })}
         </div>

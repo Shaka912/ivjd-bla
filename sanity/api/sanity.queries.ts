@@ -32,15 +32,19 @@ export async function getPage(slug: string): Promise<Page> {
   );
 }
 
-export async function getSingleCollection(slug: string): Promise<Collection> {
+export async function getSingleCollection(
+  slug: string,
+  language: string
+): Promise<Collection> {
   return await client.fetch(
     groq`
-    *[_type == "collections" && slug.current == $slug][0] {
+    *[_type == "collections" && slug.current == $slug ][0] {
       title,
       "slug": slug.current,
       featuredImage,
       logo,
       description,
+      language,
       collection1R[] {
         ...,
         _type == 'homeHeroCard' => {
@@ -73,14 +77,14 @@ export async function getSingleCollection(slug: string): Promise<Collection> {
       _id,
       country,
       year,
-       "nextProjectSlug": coalesce(
-        *[_type == "collections" && ^._createdAt < _createdAt] | order(_createdAt asc)[0].slug.current,
-        *[_type == "collections"] | order(_createdAt asc)[0].slug.current
+     "nextProjectSlug": coalesce(
+        *[_type == "collections" && _createdAt > ^._createdAt && language == $language] | order(_createdAt asc)[0].slug.current,
+        *[_type == "collections" && language == $language] | order(_createdAt asc)[0].slug.current
       )
       
     }
     `,
-    { slug }
+    { slug, language }
   );
 }
 

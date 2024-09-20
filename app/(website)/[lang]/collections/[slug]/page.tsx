@@ -11,9 +11,8 @@ interface Props {
 }
 
 const ProjectDetail = async ({ params }: Props) => {
-  const collection = await getSingleCollection(params.slug);
   const lang = params.lang;
-
+  const collection = await getSingleCollection(params.slug, lang);
   return <CollectionPage lang={lang} collection={collection} />;
 };
 

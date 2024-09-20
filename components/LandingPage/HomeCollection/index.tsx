@@ -9,7 +9,6 @@ import useMousePosition from "@/hooks/useMousePosition";
 import ListViewHoverImages from "@/components/animation/ListViewHoverImages";
 import LocaleLink from "@/components/ui/locale-link";
 
-const article2 = "/homeImg1.png";
 const FramerImage = motion(Image);
 interface Props {
   data: HomeCollectionProp;
@@ -215,7 +214,7 @@ function HomeCollections({ data, lang }: Props) {
                   onMouseLeave={onMouseLeaveRow}
                   lang={"es"}
                   key={`locale-link-${index}`}
-                  href={"/collections/" + item.slug.current || ""}
+                  href={`${lang}/collections/${item.slug.current}` || ""}
                 >
                   <CollectionItemss
                     key={index}
@@ -234,7 +233,7 @@ function HomeCollections({ data, lang }: Props) {
                   <LocaleLink
                     lang={"es"}
                     key={`locale-link-${index}`}
-                    href={"/collections/" + item.slug.current || ""}
+                    href={`${lang}/collections/${item.slug.current}` || ""}
                   >
                     <CardCollectionItems
                       key={index}
