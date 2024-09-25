@@ -42,7 +42,7 @@ export default async function Home({ params: { lang } }: Props) {
       <main className="bg-white max-h-screen  h-screen bg-blend-darken ">
         {/* Logo */}
         <div className="relative ">
-          <div className="absolute md:top-56 sm:top-44 top-36  w-full">
+          <div className="absolute md:top-44 sm:top-44 top-36  w-full">
             {home?.sections.map((section) => {
               return getSection(section);
             })}

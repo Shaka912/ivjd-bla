@@ -17,6 +17,7 @@
 .subtitle {
   font-size: var(--text-subtitle);
   line-height: normal;
+  font-weight: 300;
 }
 
 /* Card Title */
@@ -25,7 +26,6 @@
   font-size: var(--text-card-title);
   line-height: normal;
 }
-
 
 /* Card Subtitle */
 
@@ -40,10 +40,6 @@
   font-size: var(--text-body);
   line-height: normal;
 }
-
-
-
-
 
 /* Color stylings Starts */
 
@@ -65,6 +61,5 @@
 .on_high {
   color: var(--content-onhigh);
 }
-
 
 /* Color stylings Ends */

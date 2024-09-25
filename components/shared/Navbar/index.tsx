@@ -113,7 +113,7 @@ function Navbar({ lang, data }: props) {
     <>
       <div
         className={[
-          "flex items-baseline justify-between  transition-all duration-300 ease-in-out   w-full absolute top-0 left-0 right-0 pb-0 z-50  gap-16 sm:gap-24  px-5 pt-5 ",
+          "flex items-start justify-between  transition-all duration-300 ease-in-out   w-full absolute top-0 left-0 right-0 pb-0 z-50  gap-16 sm:gap-24  px-5 pt-5 ",
           disableNavbar && "!hidden",
           pathname.includes("/expos") && "text-primary",
           blend && "!mix-blend-difference text-white",
@@ -121,9 +121,9 @@ function Navbar({ lang, data }: props) {
       >
         {/* left text */}
 
-        <div className=" flex items-baseline  pt-0  md:z-0 relative ">
+        <div className=" flex items-start  pt-0  relative ">
           <ReactSVG
-            src={urlForImage(data.header.logo)}
+            src={urlForImage(data?.header?.logo)}
             beforeInjection={(svg) => {
               svg.setAttribute(
                 "class",
@@ -132,16 +132,16 @@ function Navbar({ lang, data }: props) {
             }}
           />
 
-          <h1 className="text-[24px] md:text-[32px] md:ml-3 md:mb-0 !font-normal">
+          <p className="text-[24px] md:text-[32px] md:ml-3 md:mb-0 !font-normal">
             {data?.header?.title || " "}
-          </h1>
+          </p>
         </div>
         {/* Right Container */}
 
         <div className=" hidden items-center md:gap-10 md:flex z-10  ">
           {data?.navLinks?.map((item: any, index: number) =>
             item.dropDown ? (
-              <div key={index}>
+              <div key={index} style={{ fontWeight: 300 }}>
                 <DropdownMenu>
                   <DropdownMenuTrigger>
                     <div className="flex items-center space-x-2 justify-center">
