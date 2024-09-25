@@ -116,19 +116,30 @@ function Navbar({ lang, data }: props) {
           "flex items-start justify-between  transition-all duration-300 ease-in-out   w-full absolute top-0 left-0 right-0 pb-0 z-50  gap-16 sm:gap-24  px-5 pt-5 ",
           disableNavbar && "!hidden",
           pathname.includes("/expos") && "text-primary",
-          blend && "!mix-blend-difference text-white",
+          // blend && "!mix-blend-difference text-white",
         ].join(" ")}
       >
         {/* left text */}
 
-        <div className=" flex items-start  pt-0  relative ">
+        <div className=" flex items-start  pt-0  relative  ">
           <ReactSVG
             src={urlForImage(data?.header?.logo)}
             beforeInjection={(svg) => {
-              svg.setAttribute(
-                "class",
-                "w-[40px] h-[48px] md:w-[60px] md:h-[73px]"
-              );
+              // Remove any existing fill attributes
+              svg
+                .querySelectorAll("*")
+                .forEach((el) => el.removeAttribute("fill"));
+
+              // Apply Tailwind classes for size
+              svg.setAttribute("class", "w-10 h-12 md:w-[48px] md:h-[50px]");
+
+              // Set fill to black explicitly
+              svg.style.fill = "black";
+
+              // Alternatively, set fill on all child elements
+              svg
+                .querySelectorAll("path")
+                .forEach((path) => path.setAttribute("fill", "black"));
             }}
           />
 
