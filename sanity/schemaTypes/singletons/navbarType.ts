@@ -28,6 +28,12 @@ export const navbarType = defineField({
           type: "string",
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: "logo",
+          type: "image",
+          options: { hotspot: true },
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({

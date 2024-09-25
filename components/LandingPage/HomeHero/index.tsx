@@ -12,15 +12,7 @@ function HomeHero({ data }: Props) {
   return (
     <>
       <div className=" flex items-center p-4 pt-0  md:z-0 relative ">
-        {/* <Image
-          width={60}
-          height={73}
-          style={{ objectFit: "contain" }}
-          src={urlForImage(data.header.logo) || ""}
-          alt="logo"
-        /> */}
-
-        <ReactSVG
+        {/* <ReactSVG
           src={urlForImage(data.header.logo) || ""}
           beforeInjection={(svg) => {
             svg.setAttribute(
@@ -28,10 +20,13 @@ function HomeHero({ data }: Props) {
               "w-[40px] h-[48px] md:w-[60px] md:h-[73px]"
             );
           }}
-        />
-        <h1 className="text-3xl md:text-7xl md:ml-10 ml-5 mb-3 md:mb-0">
+        /> */}
+        <div className="flex gap-4 w-[70%] md:w-[400px] ">
+          <h5 className=" text-sm md:text-base">{data.header.title}</h5>
+        </div>
+        {/* <h1 className="text-3xl md:text-7xl md:ml-10 ml-5 mb-3 md:mb-0">
           {data.header.title || " "}
-        </h1>
+        </h1> */}
       </div>
       <HomeCarousel data={data.cards} />
 

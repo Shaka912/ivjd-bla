@@ -15,6 +15,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import LocaleLink from "@/components/ui/locale-link";
+import { ReactSVG } from "react-svg";
+import { urlForImage } from "@/sanity/lib/image";
 
 interface props {
   lang: Locale;
@@ -118,10 +120,22 @@ function Navbar({ lang, data }: props) {
         ].join(" ")}
       >
         {/* left text */}
-        <div className="flex gap-4 w-full md:w-[400px] ">
-          <h5 className=" text-sm md:text-base">{data.header.title}</h5>
-        </div>
 
+        <div className=" flex items-baseline  pt-0  md:z-0 relative ">
+          <ReactSVG
+            src={urlForImage(data.header.logo)}
+            beforeInjection={(svg) => {
+              svg.setAttribute(
+                "class",
+                "w-[40px] h-[48px] md:w-[60px] md:h-[73px]"
+              );
+            }}
+          />
+
+          <h1 className="text-[24px] md:text-[32px] md:ml-3 md:mb-0 !font-normal">
+            {data?.header?.title || " "}
+          </h1>
+        </div>
         {/* Right Container */}
 
         <div className=" hidden items-center md:gap-10 md:flex z-10  ">
